@@ -1,22 +1,49 @@
 import React, {useState} from 'react';
-import {Avatar, Layout} from 'antd';
+import {Avatar, Layout, GetProps, Flex} from 'antd';
 import {MenuLayout} from "@/components/layout/menu_items";
-import {UserOutlined} from "@ant-design/icons";
+import Icon , {UserOutlined} from "@ant-design/icons";
+import Image from "next/image";
+import Link from "next/link";
 const { Content, Footer, Sider } = Layout;
 
+type CustomIconComponentProps = GetProps<typeof Icon>;
 
 
 export default function Main({ children }: any) {
   const [breakP , setBreakP] = useState<boolean>()
+  const [collapse , setCollapse] = useState<boolean>()
   const [siderW , setSiderW] = useState<number>()
 
+   const InstaIcon = (props: Partial<CustomIconComponentProps>) => (
+      <Icon component={() => (<Image width={48} height={48}
+                                     alt={''} src="/insta.png" />)} {...props} />
+    );
+
+
+  const AppleIcon = (props: Partial<CustomIconComponentProps>) => (
+      <Icon component={() => (<Image className='w-[48px] h-[48px]'
+                                     width={48} height={48} alt={''} src="/apple.png" />)} {...props} />
+    );
+
+  const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
+      <Icon component={() => (<Image className='w-[48px] h-[48px]'
+                                     width={48} height={48} alt={''} src="/spotify.png" />)} {...props} />
+    );
 
   return (
     <Layout className='!bg-white !bg-clip-padding !bg-opacity-0'>
         <Sider
             width={siderW}
             breakpoint="lg"
-            className={breakP ? 'rounded !fixed  !z-[99] !h-[100vh] top-0 right-0 bottom-0 !bg-green-900 !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-90' : '!fixed !h-[98.2vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-30 rounded mt-2'} collapsedWidth={0}
+            className={breakP ? 'rounded !fixed  !z-[99] !h-[100vh] top-0 right-0' +
+                ' bottom-0 !bg-green-900 !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-90'
+                :
+                '!fixed !h-[98.2vh] !bg-white !bg-clip-padding !backdrop-filter ' +
+                '!backdrop-blur-sm !bg-opacity-30 rounded mt-2 ms-2'}
+            collapsedWidth={0}
+            onCollapse={(collapsed) => {
+                setCollapse(collapsed)
+            }}
             onBreakpoint={broken => {
                                        if (broken) {
                                            setSiderW(300)
@@ -28,12 +55,17 @@ export default function Main({ children }: any) {
                                    }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar className='bg-sky-500' size={100} icon={<UserOutlined/>}/>
+                <Avatar className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
             </div>
             <MenuLayout/>
+            <Flex  align='center' justify='center' gap={10} className='absolute w-full bottom-0 bg-gray-500 rounded'>
+                <Link hidden={collapse} target='_blank' href={'https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}><InstaIcon/></Link>
+                <Link hidden={collapse} target='_blank' href={'https://music.apple.com/us/artist/shahram-abdoli/1724411194'}><AppleIcon/></Link>
+                <Link hidden={collapse} target='_blank' href={'https://open.spotify.com/artist/0J6quVdkvtJUYUHIo9hqZk?si=F7kiDJjITrapVp8SFVkAZQ'}><SpotIcon/></Link>
+            </Flex>
         </Sider>
         <Layout className="!bg-white !bg-clip-padding !backdrop-filter !bg-opacity-0">
-            <Content className={breakP ? 'p-2' : 'p-2 ms-[200px] '}>
+            <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
                 <div
                     className='rounded overflow-auto h-[100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
                     style={{padding: 24}}>
@@ -41,7 +73,7 @@ export default function Main({ children }: any) {
                 </div>
             </Content>
             <Footer className={breakP ? 'text-center m-2 rounded !bg-white' +
-                '            !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-30' : 'text-center ms-[208px] !bg-white' +
+                '            !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-30' : 'text-center ms-[217px] !bg-white' +
                 '            !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-30 rounded me-2 mb-2'}>
                 <p className='mobile:text-xs italic'>Shahram Abdoli Official ©{new Date().getFullYear()} Created by
                     Bushidoti</p>
