@@ -4,31 +4,36 @@ import {MenuLayout} from "@/components/layout/menu_items";
 import Icon , {UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
+import {Context} from "@/components/context"
+
 const { Content, Footer, Sider } = Layout;
 
 type CustomIconComponentProps = GetProps<typeof Icon>;
 
+export const InstaIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={() => (<Image width={48} height={48}
+                                 alt={''} src="/insta.png" />)} {...props} />
+);
+
+
+export const AppleIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={() => (<Image className='w-[48px] h-[48px]'
+                                 width={48} height={48} alt={''} src="/apple.png" />)} {...props} />
+);
+
+export const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={() => (<Image className='w-[48px] h-[48px]'
+                                 width={48} height={48} alt={''} src="/spotify.png" />)} {...props} />
+);
+
 
 export default function Main({ children }: any) {
-  const [breakP , setBreakP] = useState<boolean>()
+  const [breakP , setBreakP] = useState<boolean>(false)
   const [collapse , setCollapse] = useState<boolean>()
   const [siderW , setSiderW] = useState<number>()
 
-   const InstaIcon = (props: Partial<CustomIconComponentProps>) => (
-      <Icon component={() => (<Image width={48} height={48}
-                                     alt={''} src="/insta.png" />)} {...props} />
-    );
 
 
-  const AppleIcon = (props: Partial<CustomIconComponentProps>) => (
-      <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                     width={48} height={48} alt={''} src="/apple.png" />)} {...props} />
-    );
-
-  const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
-      <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                     width={48} height={48} alt={''} src="/spotify.png" />)} {...props} />
-    );
 
   return (
     <Layout className='!bg-white !bg-clip-padding !bg-opacity-0'>
@@ -55,7 +60,7 @@ export default function Main({ children }: any) {
                                    }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
+                <Avatar src={<Image priority width={100} height={100} src={'/avatar.jpeg'} alt={''}/>} className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
             </div>
             <MenuLayout/>
             <Flex  align='center' justify='center' gap={10} className='absolute w-full bottom-0 bg-gray-500 rounded'>
@@ -69,7 +74,12 @@ export default function Main({ children }: any) {
                 <div
                     className='rounded overflow-auto h-[100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
                     style={{padding: 24}}>
-                    <main>{children}</main>
+                    <Context.Provider value={{
+                        breakP,
+                        setBreakP
+                    }}>
+                      <main>{children}</main>
+                    </Context.Provider>
                 </div>
             </Content>
             <Footer className={breakP ? 'text-center m-2 rounded !bg-white' +

@@ -58,7 +58,7 @@ export const MenuLayout = () => {
     getItem(<Link href='/music'>موزیک</Link>, '/music', <MusicNoteIcon/>),
     getItem(<Link href='/video'>موزیک ویدئو</Link>, '/video', <VideoCameraOutlined />),
     getItem(<Link href='/photo'>عکس</Link>, '/photo', <PictureOutlined />),
-    getItem(<Link href='/bio'>بیو گرافی</Link>, '/bio', <UserOutlined />),
+    getItem(<Link href='/bio'>بیوگرافی</Link>, '/bio', <UserOutlined />),
 ];
     return (
          <Menu

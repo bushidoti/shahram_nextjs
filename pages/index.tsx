@@ -1,33 +1,65 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Carousel, Flex} from 'antd';
 import Image from "next/image";
+import Link from "next/link";
+import {Context} from "@/components/context";
 
 
+interface Type {
+    music : string,
+    pic : string,
+    video : string,
+    name : string,
+    description : string,
+}
 
-const Home: React.FC = () => (
-    <Flex vertical>
-       <Carousel className='w-full' autoplay effect="fade">
-            <Image
-                className='object-fill rounded h-[50vh]'
-                width={1080}
-                priority={true}
-                height={1080}
-                src={'/1.png'}
-                alt='rewrw'
-            />
-            <Image
-                className='object-fill rounded h-[50vh]'
-                width={3000}
-                height={3000}
-                src={'/2.png'}
-                alt='ewrwer'
-            />
-      </Carousel>
-        <div>
-            <h2>موزیک های اخیر</h2>
-        </div>
+export default function Home({ data } : any) {
+    const context = useContext(Context)
+
+    return (
+        <Flex vertical>
+                <Flex  align={"center"} justify={"center"}>
+                     <Carousel dots={false} autoplaySpeed={2000} className={context.breakP ? 'sm:w-[60vw] w-[80vw]' : 'w-[60vw]'} autoplay effect="fade">
+                         {data.map((value: Type , i: number) => (
+                              <Image
+                                key={`image${i}`}
+                                priority
+                                className={`rounded ${context.breakP ? 'h-[50vh]' :  'h-[60vh]'}`}
+                                width={1920}
+                                height={1080}
+                                src={value.pic}
+                                alt={value.name}
+                            />
+                         ))}
+                     </Carousel>
+                 </Flex>
+                 <div className='overflow-auto'>
+                    <h2 className='my-2'>موزیک های اخیر</h2>
+                     <Flex gap={20}>
+                        {data.slice(0).reverse().map((value: Type , i: number) => (
+                            <Link key={`Link${i}`} href={`/music/${value.name}`}>
+                                  <Image
+                                    key={`image${i}`}
+                                    priority
+                                    className='object-fill rounded w-[250px] h-[250px]'
+                                    width={250}
+                                    height={250}
+                                    src={value.pic}
+                                    alt={value.name}
+                                  />
+                            </Link>
+                        ))}
+                     </Flex>
+                 </div>
     </Flex>
+    )
+}
 
-);
-
-export default Home;
+export async function getStaticProps() {
+    const res = await fetch(`https://inventory.digitkey.ir/music/`)
+    const data = await res.json()
+    return {
+        props: {data},
+        revalidate: 3600
+    }
+}

@@ -9,7 +9,7 @@ import Main from "@/components/layout/layout";
 const App = ({ Component, pageProps }: AppProps) => (
    <ConfigProvider  locale={fa_IR} direction="rtl" theme={theme}>
        <Main>
-          <Component {...pageProps} />
+             <Component {...pageProps} />
        </Main>
    </ConfigProvider>
 );

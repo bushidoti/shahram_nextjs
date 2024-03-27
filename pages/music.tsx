@@ -8,7 +8,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import type { Metadata } from 'next'
 
-interface TypeCurrencyName {
+interface Type {
     music : string,
     pic : string,
     video : string,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function Music({ data } : any) {
     return (
         <Flex  justify={'center'} align={'center'} gap={35} wrap="wrap">
-            {data.map((value: TypeCurrencyName , i: number) => (
+            {data.map((value: Type , i: number) => (
                 <Card
                     key={i}
                     className='!bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-5 shadow-2xl'
@@ -57,7 +57,7 @@ export default function Music({ data } : any) {
                             customVolumeControls={[]}
                             key={`player${i}`}
                             customAdditionalControls={[]}
-                            preload={"auto"}
+                            preload={"none"}
                             showJumpControls={false}
                             header={<h2 key={`headermusic${i}`} className='text-center'>{value.name}</h2>}
                             footer={<h4  key={`footermusic${i}`} className='text-center'>{value.description}</h4>}
