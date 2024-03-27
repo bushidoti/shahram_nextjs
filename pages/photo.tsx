@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
 import {Flex} from "antd";
-import React from "react";
 
 interface Type {
     pic : string,
@@ -10,7 +8,7 @@ interface Type {
 
 export default function Photo({ data } : any) {
     return (
-       <Flex gap={20} wrap={"wrap"}>
+       <Flex gap={20} wrap={"wrap"} align={"center"} justify={"center"}>
             {data.map((value: Type , i: number) => (
                       <Image
                         key={`image${i}`}
