@@ -2,7 +2,7 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import {Button, Flex} from "antd";
-import AudioPlayer, {RHAP_UI} from "react-h5-audio-player";
+import AudioPlayer from "react-h5-audio-player";
 import 'react-h5-audio-player/lib/styles.css';
 import Image from "next/image";
 import React, {useContext} from "react";
@@ -68,12 +68,12 @@ export default function Page({
                               <Flex gap={10}>
                                   <div>
                                       <label className='text-center mb-2'>دانلود mp3 : </label>
-                                      <Button htmlType={"button"} type='primary' target='_self'
+                                      <Button download htmlType={"button"} type='primary' target='_self'
                                               href={music[0].music}><DownloadOutlined/></Button>
                                   </div>
                                   <div>
                                       <label className='text-center mb-2'>دانلود موزیک ویدئو : </label>
-                                      <Button htmlType={"button"} type='primary' target='_self'
+                                      <Button download htmlType={"button"} type='primary' target='_self'
                                               href={music[0].video}><DownloadOutlined/></Button>
                                   </div>
                               </Flex>

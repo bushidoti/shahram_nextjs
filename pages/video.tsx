@@ -45,7 +45,7 @@ export default function Videos({ data } : any) {
                                 </video>
                             }
                             actions={[
-                                <Button htmlType={"button"} type='link' target='_parent' block key={`videodownload${i}`}
+                                <Button htmlType={"button"} type='link' download target='_parent' block key={`videodownload${i}`}
                                         href={value.video}><DownloadOutlined/></Button>,
                             ]}
                         >

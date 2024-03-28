@@ -1,4 +1,4 @@
-import  {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {Carousel, Flex} from 'antd';
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +15,7 @@ interface Type {
 }
 
 export default function Home({ data } : any) {
+
     return (
         <>
         <Head>
@@ -27,14 +28,16 @@ export default function Home({ data } : any) {
         </Head>
             <Flex vertical>
                     <Flex  align={"center"} justify={"center"}>
-                         <Carousel dots={false} autoplaySpeed={2000} className={'md:w-[50vw] mobile:w-[80vw] w-[60vw]'} autoplay effect="fade">
+                         <Carousel dots={false} autoplaySpeed={2000} className={'md:w-[50vw] sm:w-[50vw]  mobile:w-[80vw] w-[60vw]'} autoplay effect="fade">
                              {data.map((value: Type , i: number) => (
                                   <Image
                                     key={`image${i}`}
                                     priority
                                     className={`rounded mobile:h-[50vh] lg:h-[60vh]`}
-                                    width={1920}
-                                    height={1080}
+                                    sizes={'200px'}
+                                    width={500}
+                                    loading={"eager"}
+                                    height={500}
                                     src={value.pic}
                                     alt={value.name}
                                 />
@@ -49,9 +52,11 @@ export default function Home({ data } : any) {
                                       <Image
                                         key={`image${i}`}
                                         priority
+                                        loading={"eager"}
                                         className='object-fill rounded w-[250px] h-[250px]'
                                         width={250}
                                         height={250}
+                                        sizes={'200px'}
                                         src={value.pic}
                                         alt={value.name}
                                       />

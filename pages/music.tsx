@@ -51,8 +51,8 @@ export default function Music({ data } : any) {
                             />
                         }
                         actions={[
-                            <Button  htmlType={"button"} type='link' target='_parent' block key={`musicdownload${i}`} href={value.music}><DownloadOutlined/></Button>,
-                            <Button htmlType={"button"} type='link' disabled={!value.video} target='_parent' block key={`videodownload${i}`} href={value.video}><VideoCameraOutlined /></Button>,
+                            <Button  htmlType={"button"} type='link' target='_parent' download block key={`musicdownload${i}`} href={value.music}><DownloadOutlined/></Button>,
+                            <Button htmlType={"button"} type='link' disabled={!value.video} download target='_parent' block key={`videodownload${i}`} href={value.video}><VideoCameraOutlined /></Button>,
                         ]}
                     >
                         <Meta

@@ -36,7 +36,7 @@ function getItem(
 const rootSubmenuKeys = ['sub1', 'sub4', 'sub5'];
 
 
-export const MenuLayout = () => {
+const MenuLayout = () => {
   const [openKeys, setOpenKeys] = useState(['']);
   const router = useRouter();
   const path = router.pathname;
@@ -73,3 +73,5 @@ export const MenuLayout = () => {
          />
     )
 }
+
+export default MenuLayout

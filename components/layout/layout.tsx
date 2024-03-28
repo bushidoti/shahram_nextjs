@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import {Avatar, Layout, GetProps, Flex} from 'antd';
-import {MenuLayout} from "@/components/layout/menu_items";
+import {Avatar, Layout, GetProps, Flex, Skeleton} from 'antd';
 import Icon , {UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import {Context} from "@/components/context"
+import dynamic from 'next/dynamic';
+const MenuLayout = dynamic(() => import('./menu_items'), {
+  ssr: true,
+});
 
 const { Content, Footer, Sider } = Layout;
 
@@ -32,11 +35,8 @@ export default function Main({ children }: any) {
   const [collapse , setCollapse] = useState<boolean>()
   const [siderW , setSiderW] = useState<number>()
 
-
-
-
   return (
-    <Layout className='!bg-white !bg-clip-padding !bg-opacity-0'>
+    <Layout className='!bg-white !bg-clip-padding !bg-opacity-0' hasSider={true}>
         <Sider
             width={siderW}
             breakpoint="lg"
