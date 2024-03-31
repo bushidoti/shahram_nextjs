@@ -1,9 +1,10 @@
-import {useContext, useEffect, useState} from 'react';
-import {Carousel, Flex} from 'antd';
+import {AutoComplete, Carousel, Flex} from 'antd';
 import Image from "next/image";
 import Link from "next/link";
-import {Context} from "@/components/context";
 import Head from "next/head";
+import { Input } from 'antd';
+import type { SearchProps } from 'antd/es/input/Search';
+import { useRouter } from 'next/router'
 
 
 interface Type {
@@ -14,8 +15,13 @@ interface Type {
     description : string,
 }
 
-export default function Home({ data } : any) {
+const { Search } = Input;
 
+
+export default function Home({ data } : any) {
+    const router = useRouter()
+
+    const onSearch: SearchProps['onSearch'] = (value, _e) => router.push(`music/${data.map((item : {name : string}) => ({value: item.name.toLowerCase()  })).filter( (page:any) => page['value'].includes(value.toLowerCase()))[0].value}`);
     return (
         <>
         <Head>
@@ -27,8 +33,19 @@ export default function Home({ data } : any) {
               <meta property="og:url" content={'https://digitkey.ir'}/>
         </Head>
             <Flex vertical>
-                    <Flex  align={"center"} justify={"center"}>
-                         <Carousel dots={false} autoplaySpeed={2000} className={'md:w-[50vw] sm:w-[50vw]  mobile:w-[80vw] w-[60vw]'} autoplay effect="fade">
+
+                    <Flex vertical  align={"center"} justify={"center"}>
+                        <AutoComplete
+                            options={data.map((item : {name : string}) => ({value: item.name  }))}
+                            className="!mb-2"
+                            filterOption={(inputValue, option : any) =>
+                              option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                            }
+                        >
+                            <Search className="lg:!w-[50vw] md:!w-[50vw] sm:!w-[50vw]" placeholder="جستجو آهنگ ...." onSearch={onSearch} />
+                        </AutoComplete>
+
+                         <Carousel dots={false} autoplaySpeed={2000} className={'md:w-[50vw] sm:w-[50vw] mobile:w-[80vw] w-[60vw]'} autoplay effect="fade">
                              {data.map((value: Type , i: number) => (
                                   <Image
                                     key={`image${i}`}
@@ -48,7 +65,7 @@ export default function Home({ data } : any) {
                         <h2 className='my-2'>موزیک های اخیر</h2>
                          <Flex gap={20}>
                             {data.slice(0).reverse().map((value: Type , i: number) => (
-                                <Link key={`Link${i}`} href={`/music/${value.name}`}>
+                                <Link key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
                                       <Image
                                         key={`image${i}`}
                                         priority

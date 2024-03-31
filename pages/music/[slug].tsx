@@ -8,7 +8,7 @@ import Image from "next/image";
 import React, {useContext} from "react";
 import {Context} from "@/components/context";
 import {DownloadOutlined} from "@ant-design/icons";
-import {AppleIcon, InstaIcon, SpotIcon} from "@/components/layout/layout";
+import {AppleIcon, SpotIcon} from "@/components/layout/layout";
 import Link from "next/link";
 
 
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   const res = await fetch('https://inventory.digitkey.ir/music/')
   const musics = await res.json()
   const paths = musics.map((post: { name: string; }) => ({
-    params: { slug: post.name },
+    params: { slug: post.name.toLowerCase() },
   }))
   return { paths, fallback: false }
 }
@@ -39,7 +39,6 @@ export default function Page({
           {context.breakP ?
 
               <>
-                <InstaIcon/>
                   <h1 className='text-center mb-2'>{music[0].name}</h1>
                   <Flex gap={10} justify={"center"} wrap="wrap" align={"center"}>
                       <Flex className='w-full' gap={20} wrap='wrap'  justify={"center"} align={"center"}>
@@ -77,6 +76,21 @@ export default function Page({
                                               href={music[0].video}><DownloadOutlined/></Button>
                                   </div>
                               </Flex>
+                          </Flex>
+                          <Flex gap={10} justify={"center"} align={"center"}>
+                            {music[0].apple || music[0].spotify ?
+                                <label className='text-center mb-2'>لینک ها : </label>
+                                : null}
+                              {
+                                music[0].apple ?
+                                    <Link target='_blank' href={music[0].apple}><AppleIcon/></Link>
+                                    : null
+                              }
+                              {
+                                music[0].spotify ?
+                                    <Link target='_blank' href={music[0].spotify}><SpotIcon/></Link>
+                                    : null
+                              }
                           </Flex>
                       </Flex>
                       <div className='w-full' style={{direction: 'ltr'}}>
@@ -122,8 +136,9 @@ export default function Page({
                             <h1 className='text-center mb-2'>{music[0].name}</h1>
                             <h3 className='text-center mb-2'>سال انتشار : {music[0].release}</h3>
                             <Flex gap={10} justify={"center"} align={"center"}>
-                              <label className='text-center mb-2'>لینک ها : </label>
-                              {
+                                {music[0].apple || music[0].spotify ?
+                                <label className='text-center mb-2'>لینک ها : </label>
+                                : null}                              {
                                 music[0].apple ?
                                     <Link target='_blank' href={music[0].apple}><AppleIcon/></Link>
                                     : null
