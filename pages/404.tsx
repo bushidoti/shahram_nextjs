@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Result } from 'antd';
 import {useRouter} from "next/router";
-export default function () {
-    const router = useRouter()
+const Custom404 = () => {
+  const router = useRouter()
 
     return (
         <Result
@@ -15,3 +15,5 @@ export default function () {
           />
     )
 }
+
+export default Custom404;
