@@ -1,6 +1,5 @@
 import {Button, Card, Flex} from "antd";
 import {DownloadOutlined} from '@ant-design/icons';
-const { Meta } = Card;
 import 'react-h5-audio-player/lib/styles.css';
 import type { Metadata } from 'next'
 import Head from "next/head";
@@ -15,7 +14,7 @@ interface Type {
 
 
 export const metadata: Metadata = {
-  title: 'موزیک ویدئو های شهرام عبدلی',
+  title: 'موزیک ویدئو - شهرام عبدلی',
   description: 'جدید ترین موزیک ویدئو های شهرام عبدلی',
 }
 
@@ -49,12 +48,10 @@ export default function Videos({ data } : any) {
                                         href={value.video}><DownloadOutlined/></Button>,
                             ]}
                         >
-                            <Meta
-                                className='text-center p-2 font-bold'
-                                key={`meta${i}`}
-                                title={value.name}
-                                description={value.description}
-                            />
+                            <Flex vertical align='center' justify='center'>
+                                <h2>{value.name}</h2>
+                                <p>{value.description}</p>
+                            </Flex>
                         </Card>
                   : null}</div>
                 ))}

@@ -10,6 +10,7 @@ import {Context} from "@/components/context";
 import {DownloadOutlined} from "@ant-design/icons";
 import {AppleIcon, SpotIcon} from "@/components/layout/layout";
 import Link from "next/link";
+import Head from "next/head";
 
 
 
@@ -36,6 +37,14 @@ export default function Page({
 
   return (
       <>
+                <Head>
+                  <link rel="icon" href="/favicon.ico"/>
+                  <title>آهنگ - {music[0].name}</title>
+                  <meta name="description"
+                        content={music[0].description}/>
+                  <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
+                  <meta property="og:url" content={'https://digitkey.ir/music'}/>
+             </Head>
           {context.breakP ?
 
               <>

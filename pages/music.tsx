@@ -55,12 +55,6 @@ export default function Music({ data } : any) {
                             <Button htmlType={"button"} type='link' disabled={!value.video} download target='_parent' block key={`videodownload${i}`} href={value.video}><VideoCameraOutlined /></Button>,
                         ]}
                     >
-                        <Meta
-                          key={`meta${i}`}
-                          className='!hidden'
-                          title={value.name}
-                          description={value.description}
-                        />
                         <div key={`player${i}`} style={{direction: 'ltr'}}>
                             <AudioPlayer
                                 className='!border-none !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-10 '
