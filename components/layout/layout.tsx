@@ -15,18 +15,18 @@ type CustomIconComponentProps = GetProps<typeof Icon>;
 
 export const InstaIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={() => (<Image width={48} height={48}
-                                 alt={''} src="/insta.png" />)} {...props} />
+                                 alt={'Instagram'} src="/insta.png" />)} {...props} />
 );
 
 
 export const AppleIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                 width={48} height={48} alt={''} src="/apple.png" />)} {...props} />
+                                 width={48} height={48} alt={'Apple'} src="/apple.png" />)} {...props} />
 );
 
 export const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                 width={48} height={48} alt={''} src="/spotify.png" />)} {...props} />
+                                 width={48} height={48} alt={'Spotify'} src="/spotify.png" />)} {...props} />
 );
 
 
@@ -60,7 +60,7 @@ export default function Main({ children }: any) {
                                    }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar src={<Image priority width={100} height={100} src={'/avatar.jpeg'} alt={''}/>} className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
+                <Avatar src={<Image priority width={100} height={100} src={'/avatar.jpeg'} alt={'Avatar'}/>} className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
             </div>
             <MenuLayout/>
             <Flex  align='center' justify='center' gap={10} className='absolute w-full bottom-0 bg-gray-500 rounded'>

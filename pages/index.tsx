@@ -43,7 +43,7 @@ export default function Home({ data } : any) {
                  Shahram Abdoli, Pop Music, Persian Music,
                   Traditional Music, Fusion Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی, نام آهنگ, نام آلبوم, شاعر, آهنگساز"/>
                     <meta name="description"
-                          content={'سایت شخصی شهرام عبدلی'}/>
+                          content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                     <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
                     <meta property="og:url" content={'https://digitkey.ir'}/>
             </Head>
@@ -76,7 +76,7 @@ export default function Home({ data } : any) {
                          </Carousel>
                      </Flex>
                      <Flex vertical  align={"center"} justify={"center"} gap={20}>
-                         <h3>پلی لیست</h3>
+                        <h1>لیست پخش</h1>
                         <Card
                         className='!bg-white !bg-clip-padding !backdrop-filter
                         !backdrop-blur-sm !bg-opacity-5 shadow-2xl
@@ -89,7 +89,7 @@ export default function Home({ data } : any) {
                                 height={0}
                                 priority
                                 sizes="200px"
-                                className='w-[500px] h-[250px]'
+                                className='w-[500px] h-[350px]'
                              />
                         }
                     >
@@ -100,6 +100,7 @@ export default function Home({ data } : any) {
                                  onEnded={handleClickNext}
                                   autoPlayAfterSrcChange={true}
                                   showSkipControls={true}
+                                  preload={"none"}
                                   customVolumeControls={[]}
                                   footer={<h4  className='text-center'>{data[playIndex].description}</h4>}
                                   header={<h2  className='text-center'>{data[playIndex].name}</h2>}

@@ -34,12 +34,12 @@ export default function Page({
   music,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const context = useContext(Context)
-
+  const title = ` آهنگ ${music[0].name}`
   return (
       <>
         <Head>
           <link rel="icon" href="/favicon.ico"/>
-          <title>آهنگ - {music[0].name}</title>
+          <title>{title}</title>
           <meta name="keywords" content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
           <meta name="description"
                 content={music[0].description}/>
