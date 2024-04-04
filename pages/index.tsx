@@ -38,10 +38,10 @@ export default function Home({ data } : any) {
         <>
         <Head>
               <link rel="icon" href="/favicon.ico"/>
-              <title>شهرام عبدلی</title>
+              <title>شهرام عبدلی - Shahram Abdoli</title>
               <meta name="description"
                     content={'سایت شخصی شهرام عبدلی'}/>
-              <meta property="og:title" content={'شهرام عبدلی'}/>
+              <meta property="og:title" content={'شهرام عبدلی - Shahram Abdoli'}/>
               <meta property="og:url" content={'https://digitkey.ir'}/>
         </Head>
             <Flex vertical>
@@ -114,7 +114,7 @@ export default function Home({ data } : any) {
                         <h2 className='my-2'>موزیک های اخیر</h2>
                          <Flex gap={20}>
                             {data.slice(0).reverse().map((value: Type , i: number) => (
-                                <Link key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
+                                <Link rel='canonical' key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
                                       <Image
                                         key={`image${i}`}
                                         priority
