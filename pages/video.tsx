@@ -22,14 +22,15 @@ export default function Videos({ data } : any) {
     return (
         <>
             <Head>
-                  <link rel="icon" href="/favicon.ico"/>
-                  <title>موزیک ویدئو - شهرام عبدلی</title>
-                  <meta name="description"
-                        content={'موزیک ویدئو های شهرام عبدلی'}/>
-                  <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
-                  <meta property="og:url" content={'https://digitkey.ir/video'}/>
+                <link rel="icon" href="/favicon.ico"/>
+                <title>موزیک ویدئو - شهرام عبدلی</title>
+                <meta name="keywords" content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
+                <meta name="description"
+                      content={'موزیک ویدئو های شهرام عبدلی'}/>
+                <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
+                <meta property="og:url" content={'https://digitkey.ir/video'}/>
             </Head>
-            <Flex  justify={'center'} align={'center'} gap={35} wrap="wrap">
+            <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type , i: number) => (
                     <div key={`div${i}`}>
                         {value.video ?

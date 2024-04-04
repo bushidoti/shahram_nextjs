@@ -5,11 +5,13 @@ import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="fa">
-    <Head />
-    <body>
-      <Main />
-      <NextScript />
-    </body>
+      <Head>
+          <meta name="author" content="Bushidoti"/>
+      </Head>
+      <body>
+      <Main/>
+      <NextScript/>
+      </body>
   </Html>
 );
 

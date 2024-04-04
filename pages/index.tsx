@@ -36,14 +36,17 @@ export default function Home({ data } : any) {
     const onSearch: SearchProps['onSearch'] = (value, _e) => router.push(`music/${data.map((item : {name : string}) => ({value: item.name.toLowerCase()  })).filter( (page:any) => page['value'].includes(value.toLowerCase()))[0].value}`);
     return (
         <>
-        <Head>
-              <link rel="icon" href="/favicon.ico"/>
-              <title>شهرام عبدلی - Shahram Abdoli</title>
-              <meta name="description"
-                    content={'سایت شخصی شهرام عبدلی'}/>
-              <meta property="og:title" content={'شهرام عبدلی - Shahram Abdoli'}/>
-              <meta property="og:url" content={'https://digitkey.ir'}/>
-        </Head>
+            <Head>
+                <link rel="icon" href="/favicon.ico"/>
+                <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
+                <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Performer,
+                 Shahram Abdoli, Pop Music, Persian Music,
+                  Traditional Music, Fusion Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی, نام آهنگ, نام آلبوم, شاعر, آهنگساز"/>
+                    <meta name="description"
+                          content={'سایت شخصی شهرام عبدلی'}/>
+                    <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
+                    <meta property="og:url" content={'https://digitkey.ir'}/>
+            </Head>
             <Flex vertical>
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>
                     <Flex vertical  align={"center"} justify={"center"}>

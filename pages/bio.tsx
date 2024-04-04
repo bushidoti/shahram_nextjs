@@ -13,12 +13,13 @@ export default function Bio() {
     return (
         <>
             <Head>
-                  <link rel="icon" href="/favicon.ico"/>
-                  <title>بیوگرافی - شهرام عبدلی</title>
-                  <meta name="description"
-                        content={'بیوگرافی های شهرام عبدلی'}/>
-                  <meta property="og:title" content={'بیوگرافی - شهرام عبدلی'}/>
-                  <meta property="og:url" content={'https://digitkey.ir/bio'}/>
+                <link rel="icon" href="/favicon.ico"/>
+                <title>بیوگرافی - شهرام عبدلی</title>
+                <meta name="keywords" content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>
+                <meta name="description"
+                      content={'بیوگرافی های شهرام عبدلی'}/>
+                <meta property="og:title" content={'بیوگرافی - شهرام عبدلی'}/>
+                <meta property="og:url" content={'https://digitkey.ir/bio'}/>
             </Head>
             <Flex vertical gap={100}>
                 <h1 hidden>بیوگرافی</h1>

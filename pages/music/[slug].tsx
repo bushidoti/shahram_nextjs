@@ -37,18 +37,19 @@ export default function Page({
 
   return (
       <>
-                <Head>
-                  <link rel="icon" href="/favicon.ico"/>
-                  <title>آهنگ - {music[0].name}</title>
-                  <meta name="description"
-                        content={music[0].description}/>
-                  <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
-                  <meta property="og:url" content={'https://digitkey.ir/music'}/>
-             </Head>
-          {context.breakP ?
+        <Head>
+          <link rel="icon" href="/favicon.ico"/>
+          <title>آهنگ - {music[0].name}</title>
+          <meta name="keywords" content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
+          <meta name="description"
+                content={music[0].description}/>
+          <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
+          <meta property="og:url" content={'https://digitkey.ir/music'}/>
+        </Head>
+        {context.breakP ?
 
-              <>
-                  <h1 className='text-center mb-2'>{music[0].name}</h1>
+            <>
+              <h1 className='text-center mb-2'>{music[0].name}</h1>
                   <Flex gap={10} justify={"center"} wrap="wrap" align={"center"}>
                       <Flex className='w-full' gap={20} wrap='wrap'  justify={"center"} align={"center"}>
                           {music[0].video ?

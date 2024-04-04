@@ -26,16 +26,18 @@ export const metadata: Metadata = {
 export default function Music({ data } : any) {
     return (
         <>
-             <Head>
-                  <link rel="icon" href="/favicon.ico"/>
-                  <title>آهنگ - شهرام عبدلی</title>
-                  <meta name="description"
-                        content={'آهنگ های شهرام عبدلی'}/>
-                  <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
-                  <meta property="og:url" content={'https://digitkey.ir/music'}/>
-             </Head>
-            <Flex  justify={'center'} align={'center'} gap={35} wrap="wrap">
-                {data.map((value: Type , i: number) => (
+            <Head>
+                <link rel="icon" href="/favicon.ico"/>
+                <title>آهنگ - شهرام عبدلی</title>
+                <meta name="keywords"
+                      content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
+                <meta name="description"
+                      content={'آهنگ های شهرام عبدلی'}/>
+                <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
+                <meta property="og:url" content={'https://digitkey.ir/music'}/>
+            </Head>
+            <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
+                {data.map((value: Type, i: number) => (
                     <Card
                         key={i}
                         className='!bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-5 shadow-2xl'
