@@ -39,13 +39,14 @@ export default function Home({ data } : any) {
             <Head>
                 <link rel="icon" href="/favicon.ico"/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
+                <link rel="canonical" href="https://www.digitkey.ir"/>
                 <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Performer,
                  Shahram Abdoli, Pop Music, Persian Music,
                   Traditional Music, Fusion Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی, نام آهنگ, نام آلبوم, شاعر, آهنگساز"/>
-                    <meta name="description"
-                          content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
-                    <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
-                    <meta property="og:url" content={'https://digitkey.ir'}/>
+                <meta name="description"
+                      content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
+                <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
+                <meta property="og:url" content={'https://digitkey.ir'}/>
             </Head>
             <Flex vertical>
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>

@@ -40,7 +40,9 @@ export default function Page({
         <Head>
           <link rel="icon" href="/favicon.ico"/>
           <title>{title}</title>
-          <meta name="keywords" content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
+          <meta property='og:video' content={music[0].video}/>
+          <meta name="keywords"
+                content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
           <meta name="description"
                 content={music[0].description}/>
           <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
