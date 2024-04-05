@@ -56,12 +56,15 @@ export default function Page({
                       <Flex className='w-full' gap={20} wrap='wrap'  justify={"center"} align={"center"}>
                           {music[0].video ?
                               <div className='w-[300px]'>
-                                  <video className='rounded w-full h-full' poster={music[0].pic} aria-label={music[0].name}
+                                <main>
+                                  <video className='rounded w-full h-full' poster={music[0].pic}
+                                         aria-label={music[0].name}
                                          width={250} height={250}
                                          controls preload={'none'}>
-                                      <source src={music[0].video} type="video/mp4"/>
-                                      مرورگر شما این قابلیت را پشتیبانی نمیکند
+                                    <source src={music[0].video} type="video/mp4"/>
+                                    مرورگر شما این قابلیت را پشتیبانی نمیکند
                                   </video>
+                                </main>
                               </div>
                               :
                               <Image
