@@ -33,24 +33,44 @@ export default function Home({ data } : any) {
         setPlayIndex(prevState => prevState < data.length - 1 ? prevState + 1 : 0)
     }
 
-    const onSearch: SearchProps['onSearch'] = (value, _e) => router.push(`music/${data.map((item : {name : string}) => ({value: item.name.toLowerCase()  })).filter( (page:any) => page['value'].includes(value.toLowerCase()))[0].value}`);
+  const schemaPerson = {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Shahram abdoli",
+      "url": "https://www.shahram-abdoli.ir",
+      "image": "/avatar.jpeg",
+      "sameAs": [
+        "https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "https://www.youtube.com/@shahramabdoli"
+      ],
+      "jobTitle": "Singer"
+    }
+
+    const onSearch: SearchProps['onSearch'] = (value, _e) =>
+        router.push(`music/${data.map((item : {name : string}) => ({value: item.name.toLowerCase()}))
+            .filter( (page:any) => page['value'].includes(value.toLowerCase()))[0].value}`);
+
     return (
         <>
+            <h1 hidden={true}>خواننده شهرام عبدلی - Shahram Abdoli</h1>
             <Head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
+                />
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/"/>
                 <link rel="icon" href="/favicon.ico"/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
-                <link rel="canonical" href="https://www.digitkey.ir"/>
-                <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Performer,
-                 Shahram Abdoli, Pop Music, Persian Music,
-                  Traditional Music, Fusion Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی, نام آهنگ, نام آلبوم, شاعر, آهنگساز"/>
+                <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
                 <meta name="description"
                       content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                 <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
-                <meta property="og:url" content={'https://digitkey.ir'}/>
+                <meta property="og:url" content={'https://www.shahram-abdoli.ir'}/>
+                <meta property="og:image" content={'/avatar.jpeg'}/>
             </Head>
             <Flex vertical>
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>
-                    <Flex vertical  align={"center"} justify={"center"}>
+                <Flex vertical  align={"center"} justify={"center"}>
                         <AutoComplete
                             options={data.map((item : {name : string}) => ({value: item.name  }))}
                             className="!mb-2"
@@ -77,7 +97,7 @@ export default function Home({ data } : any) {
                          </Carousel>
                      </Flex>
                      <Flex vertical  align={"center"} justify={"center"} gap={20}>
-                        <h1>لیست پخش</h1>
+                         <h2><strong>لیست پخش</strong></h2>
                         <Card
                         className='!bg-white !bg-clip-padding !backdrop-filter
                         !backdrop-blur-sm !bg-opacity-5 shadow-2xl

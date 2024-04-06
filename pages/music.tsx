@@ -7,6 +7,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import type { Metadata } from 'next'
 import Head from "next/head";
+import React from "react";
 const { Meta } = Card;
 
 interface Type {
@@ -28,13 +29,14 @@ export default function Music({ data } : any) {
         <>
             <Head>
                 <link rel="icon" href="/favicon.ico"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/music"/>
                 <title>آهنگ - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
                 <meta name="description"
                       content={'آهنگ های شهرام عبدلی'}/>
                 <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://digitkey.ir/music'}/>
+                <meta property="og:url" content={'https://www.shahram-abdoli.ir/music'}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type, i: number) => (

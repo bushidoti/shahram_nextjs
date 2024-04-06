@@ -3,6 +3,7 @@ import {DownloadOutlined} from '@ant-design/icons';
 import 'react-h5-audio-player/lib/styles.css';
 import type { Metadata } from 'next'
 import Head from "next/head";
+import React from "react";
 
 interface Type {
     music : string,
@@ -23,12 +24,14 @@ export default function Videos({ data } : any) {
         <>
             <Head>
                 <link rel="icon" href="/favicon.ico"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/video"/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
-                <meta name="keywords" content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
+                <meta name="keywords"
+                      content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
                 <meta name="description"
                       content={'موزیک ویدئو های شهرام عبدلی'}/>
                 <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://digitkey.ir/video'}/>
+                <meta property="og:url" content={'https://www.shahram-abdoli.ir/video'}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type , i: number) => (

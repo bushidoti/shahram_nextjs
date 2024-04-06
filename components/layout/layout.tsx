@@ -64,9 +64,9 @@ export default function Main({ children }: any) {
             </div>
             <MenuLayout/>
             <Flex  align='center' justify='center' gap={10} className='absolute w-full bottom-0 bg-gray-500 rounded'>
-                <Link hidden={collapse} target='_blank' href={'https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}><InstaIcon/></Link>
-                <Link hidden={collapse} target='_blank' href={'https://music.apple.com/us/artist/shahram-abdoli/1724411194'}><AppleIcon/></Link>
-                <Link hidden={collapse} target='_blank' href={'https://open.spotify.com/artist/0J6quVdkvtJUYUHIo9hqZk?si=F7kiDJjITrapVp8SFVkAZQ'}><SpotIcon/></Link>
+                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}><InstaIcon/></Link>
+                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://music.apple.com/us/artist/shahram-abdoli/1724411194'}><AppleIcon/></Link>
+                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://open.spotify.com/artist/0J6quVdkvtJUYUHIo9hqZk?si=F7kiDJjITrapVp8SFVkAZQ'}><SpotIcon/></Link>
             </Flex>
         </Sider>
         <Layout className="!bg-white !bg-clip-padding !backdrop-filter !bg-opacity-0">

@@ -40,13 +40,14 @@ export default function Page({
         <Head>
           <link rel="icon" href="/favicon.ico"/>
           <title>{title}</title>
+          <link rel="alternate" hrefLang="fa-IR" href={`https://www.shahram-abdoli.ir/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
           <meta name="keywords"
                 content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
           <meta name="description"
                 content={music[0].description}/>
           <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
-          <meta property="og:url" content={'https://digitkey.ir/music'}/>
+          <meta property="og:url" content={`https://www.shahram-abdoli.ir/music/${music[0].name}`}/>
         </Head>
         {context.breakP ?
 
@@ -98,12 +99,12 @@ export default function Page({
                                 : null}
                               {
                                 music[0].apple ?
-                                    <Link target='_blank' href={music[0].apple}><AppleIcon/></Link>
+                                    <Link  rel='noopener' target='_blank' href={music[0].apple}><AppleIcon/></Link>
                                     : null
                               }
                               {
                                 music[0].spotify ?
-                                    <Link target='_blank' href={music[0].spotify}><SpotIcon/></Link>
+                                    <Link  rel='noopener' target='_blank' href={music[0].spotify}><SpotIcon/></Link>
                                     : null
                               }
                           </Flex>

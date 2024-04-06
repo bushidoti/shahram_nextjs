@@ -1,7 +1,7 @@
 import {Avatar, Flex} from "antd";
 import Image from "next/image";
 import {UserOutlined} from "@ant-design/icons";
-import {useContext} from "react";
+import React, {useContext} from "react";
 import {Context} from "@/components/context";
 import Link from "next/link";
 import {AppleIcon, InstaIcon, SpotIcon} from "@/components/layout/layout";
@@ -14,12 +14,14 @@ export default function Bio() {
         <>
             <Head>
                 <link rel="icon" href="/favicon.ico"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/bio"/>
                 <title>بیوگرافی - شهرام عبدلی</title>
-                <meta name="keywords" content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>
+                <meta name="keywords"
+                      content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>
                 <meta name="description"
                       content={'بیوگرافی های شهرام عبدلی'}/>
                 <meta property="og:title" content={'بیوگرافی - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://digitkey.ir/bio'}/>
+                <meta property="og:url" content={'https://www.shahram-abdoli.ir/bio'}/>
             </Head>
             <Flex vertical gap={100}>
                 <h1 hidden>بیوگرافی</h1>
