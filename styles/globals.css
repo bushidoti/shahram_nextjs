@@ -83,10 +83,21 @@ body {
 
 
 body {
-  background: radial-gradient(circle, rgb(0, 148, 17) 0%, rgb(65, 150, 4) 18%, rgba(8,149,74,1) 32%, rgba(55,177,28,1) 44%, rgba(74,135,11,1) 56.00000000000001%, rgba(3,74,11,1) 59%);  background-size: 300% 100%;
+  background: radial-gradient(circle, rgb(0, 148, 17) 0%, rgb(65, 150, 4) 18%, rgba(8,149,74,1) 32%, rgba(55,177,28,1) 44%, rgba(74,135,11,1) 56.00000000000001%, rgba(3,74,11,1) 59%);  background-size: 360% 360%;
   animation: gradient-animation 18s ease infinite;
 }
 
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 ::-webkit-scrollbar {
   width: 10px;

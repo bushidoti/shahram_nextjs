@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 import AudioPlayer from "react-h5-audio-player";
 import React, {useState} from "react";
 import 'react-h5-audio-player/lib/styles.css';
-import { useAmp } from 'next/amp'
 
 
 interface Type {
@@ -87,9 +86,10 @@ export default function Home({ data } : any) {
                             {data.map((value: Type, i: number) => (
                                 <Image
                                     key={`image${i}`}
-                                    priority
                                     className={`rounded mobile:h-[50vh] lg:h-[60vh] sm:h-[60vh] md:h-[60vh]`}
-                                    sizes={'300px'}
+                                    sizes={'350px'}
+                                    placeholder="blur"
+                                    blurDataURL={value.pic}
                                     width={500}
                                     loading={"eager"}
                                     height={500}
@@ -109,9 +109,10 @@ export default function Home({ data } : any) {
                                 <Image
                                     src={data[playIndex].pic}
                                     alt={data[playIndex].pic}
+                                    placeholder="blur"
+                                    blurDataURL={data[playIndex].pic}
                                     width={0}
                                     height={0}
-                                    priority
                                     sizes="200px"
                                     className='w-[500px] h-[350px]'
                                 />
@@ -145,12 +146,13 @@ export default function Home({ data } : any) {
                             <Link rel='canonical' key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
                                 <Image
                                     key={`image${i}`}
-                                    priority
                                     loading={"eager"}
                                     className='object-fill rounded w-[250px] h-[250px]'
                                     width={250}
                                     height={250}
                                     sizes={'200px'}
+                                    placeholder="blur"
+                                    blurDataURL={value.pic}
                                     src={value.pic}
                                     alt={value.name}
                                 />
