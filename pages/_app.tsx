@@ -3,7 +3,10 @@ import type { AppProps } from 'next/app';
 import theme from '@/components/theme/themeConfig';
 import "@/styles/globals.css";
 import fa_IR from "antd/lib/locale/fa_IR";
-import Main from "@/components/layout/layout";
+import dynamic from 'next/dynamic';
+const Main = dynamic(() => import('@/components/layout/layout'), {
+  ssr: true,
+});
 
 const App = ({ Component, pageProps }: AppProps) => (
    <ConfigProvider  locale={fa_IR} direction="rtl" theme={theme}>

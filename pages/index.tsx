@@ -87,7 +87,7 @@ export default function Home({ data } : any) {
                                 <Image
                                     key={`image${i}`}
                                     className={`rounded mobile:h-[50vh] lg:h-[60vh] sm:h-[60vh] md:h-[60vh]`}
-                                    sizes={'350px'}
+                                    sizes={'300px'}
                                     placeholder="blur"
                                     blurDataURL={value.pic}
                                     width={500}
