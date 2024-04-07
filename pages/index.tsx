@@ -112,6 +112,7 @@ export default function Home({ data } : any) {
                                     placeholder="blur"
                                     blurDataURL={data[playIndex].pic}
                                     width={0}
+                                    loading={"eager"}
                                     height={0}
                                     sizes="200px"
                                     className='w-[500px] h-[350px]'
