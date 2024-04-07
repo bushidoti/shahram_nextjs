@@ -9,10 +9,29 @@ interface Type {
 }
 
 export default function Photo({ data } : any) {
+     const schemaBreadcrumb = {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "main",
+          "item": "https://www.shahram-abdoli.ir"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "photo",
+          "item": "https://www.shahram-abdoli.ir/photo"
+        }]
+      }
+
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico"/>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+                />
                 <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/photo"/>
                 <meta name="keywords"
                       content="شهرام عبدلی, shahram abdoli photo, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, عکس های شهرام عبدلی"/>

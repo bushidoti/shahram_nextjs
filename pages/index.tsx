@@ -59,7 +59,6 @@ export default function Home({ data } : any) {
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
                 />
                 <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/"/>
-                <link rel="icon" href="/favicon.ico"/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
                 <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
                 <meta name="description"

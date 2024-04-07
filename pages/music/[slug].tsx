@@ -35,10 +35,48 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const context = useContext(Context)
   const title = ` آهنگ ${music[0].name}`
+  const schemaVideo = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": music[0].name,
+      "description": music[0].description,
+      "thumbnailUrl": music[0].pic,
+      "uploadDate": music[0].release,
+      "contentUrl": music[0].video
+    }
+  const schemaBreadcrumb = {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "main",
+          "item": "https://www.shahram-abdoli.ir"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "music",
+          "item": "https://www.shahram-abdoli.ir/music"
+        },{
+          "@type": "ListItem",
+          "position": 3,
+          "name": music[0].name,
+          "item": `https://www.shahram-abdoli.ir/music/${music[0].name}`
+        }]
+      }
+
   return (
       <>
         <Head>
           <link rel="icon" href="/favicon.ico"/>
+          <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{__html: JSON.stringify(schemaVideo)}}
+          />
+          <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+          />
           <title>{title}</title>
           <link rel="alternate" hrefLang="fa-IR" href={`https://www.shahram-abdoli.ir/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
@@ -53,7 +91,7 @@ export default function Page({
 
             <>
               <h1 className='text-center mb-2'>{music[0].name}</h1>
-                  <Flex gap={10} justify={"center"} wrap="wrap" align={"center"}>
+              <Flex gap={10} justify={"center"} wrap="wrap" align={"center"}>
                       <Flex className='w-full' gap={20} wrap='wrap'  justify={"center"} align={"center"}>
                           {music[0].video ?
                               <div className='w-[300px]'>

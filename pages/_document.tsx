@@ -7,6 +7,7 @@ const MyDocument = () => (
   <Html lang="fa">
       <Head>
           <meta name="author" content="Bushidoti"/>
+          <link rel="icon" href="/favicon.ico"/>
       </Head>
       <body>
       <Main/>

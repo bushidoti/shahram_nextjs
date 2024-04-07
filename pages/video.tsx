@@ -20,10 +20,29 @@ export const metadata: Metadata = {
 }
 
 export default function Videos({ data } : any) {
+    const schemaBreadcrumb = {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "main",
+          "item": "https://www.shahram-abdoli.ir"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "video",
+          "item": "https://www.shahram-abdoli.ir/video"
+        }]
+      }
+
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico"/>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+                />
                 <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/video"/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
                 <meta name="keywords"
@@ -34,7 +53,7 @@ export default function Videos({ data } : any) {
                 <meta property="og:url" content={'https://www.shahram-abdoli.ir/video'}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
-                {data.map((value: Type , i: number) => (
+                {data.map((value: Type, i: number) => (
                     <div key={`div${i}`}>
                         {value.video ?
                             <Card

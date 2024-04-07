@@ -9,11 +9,29 @@ import Head from "next/head";
 
 export default function Bio() {
     const context = useContext(Context)
+    const schemaBreadcrumb = {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "main",
+          "item": "https://www.shahram-abdoli.ir"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "bio",
+          "item": "https://www.shahram-abdoli.ir/bio"
+        }]
+      }
 
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico"/>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+                />
                 <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/bio"/>
                 <title>بیوگرافی - شهرام عبدلی</title>
                 <meta name="keywords"

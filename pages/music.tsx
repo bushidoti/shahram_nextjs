@@ -25,10 +25,29 @@ export const metadata: Metadata = {
 }
 
 export default function Music({ data } : any) {
+    const schemaBreadcrumb = {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "main",
+          "item": "https://www.shahram-abdoli.ir"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "music",
+          "item": "https://www.shahram-abdoli.ir/music"
+        }]
+      }
+
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico"/>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+                />
                 <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/music"/>
                 <title>آهنگ - شهرام عبدلی</title>
                 <meta name="keywords"
