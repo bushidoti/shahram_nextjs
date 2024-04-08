@@ -32,12 +32,12 @@ export default function Music({ data } : any) {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahram-abdoli.ir"
+          "item": "https://www.shahramabdoli.ir"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "music",
-          "item": "https://www.shahram-abdoli.ir/music"
+          "item": "https://www.shahramabdoli.ir/music"
         }]
       }
 
@@ -48,14 +48,14 @@ export default function Music({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/music"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/music"/>
                 <title>آهنگ - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
                 <meta name="description"
                       content={'آهنگ های شهرام عبدلی'}/>
                 <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahram-abdoli.ir/music'}/>
+                <meta property="og:url" content={'https://www.shahramabdoli.ir/music'}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type, i: number) => (

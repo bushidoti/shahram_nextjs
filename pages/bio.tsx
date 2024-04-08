@@ -16,12 +16,12 @@ export default function Bio() {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahram-abdoli.ir"
+          "item": "https://www.shahramabdoli.ir"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "bio",
-          "item": "https://www.shahram-abdoli.ir/bio"
+          "item": "https://www.shahramabdoli.ir/bio"
         }]
       }
 
@@ -32,14 +32,14 @@ export default function Bio() {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/bio"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/bio"/>
                 <title>بیوگرافی - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>
                 <meta name="description"
                       content={'بیوگرافی های شهرام عبدلی'}/>
                 <meta property="og:title" content={'بیوگرافی - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahram-abdoli.ir/bio'}/>
+                <meta property="og:url" content={'https://www.shahramabdoli.ir/bio'}/>
             </Head>
             <Flex vertical gap={100}>
                 <h1 hidden>بیوگرافی</h1>

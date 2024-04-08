@@ -16,12 +16,12 @@ export default function Photo({ data } : any) {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahram-abdoli.ir"
+          "item": "https://www.shahramabdoli.ir"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "photo",
-          "item": "https://www.shahram-abdoli.ir/photo"
+          "item": "https://www.shahramabdoli.ir/photo"
         }]
       }
 
@@ -32,14 +32,14 @@ export default function Photo({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/photo"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/photo"/>
                 <meta name="keywords"
                       content="شهرام عبدلی, shahram abdoli photo, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, عکس های شهرام عبدلی"/>
                 <title>عکس - شهرام عبدلی</title>
                 <meta name="description"
                       content={'عکس های شهرام عبدلی'}/>
                 <meta property="og:title" content={'عکس - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahram-abdoli.ir/photo'}/>
+                <meta property="og:url" content={'https://www.shahramabdoli.ir/photo'}/>
             </Head>
             <Flex gap={20} wrap={"wrap"} align={"center"} justify={"center"}>
                 {data.map((value: Type, i: number) => (

@@ -27,12 +27,12 @@ export default function Videos({ data } : any) {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahram-abdoli.ir"
+          "item": "https://www.shahramabdoli.ir"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "video",
-          "item": "https://www.shahram-abdoli.ir/video"
+          "item": "https://www.shahramabdoli.ir/video"
         }]
       }
 
@@ -43,14 +43,14 @@ export default function Videos({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/video"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/video"/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
                 <meta name="description"
                       content={'موزیک ویدئو های شهرام عبدلی'}/>
                 <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahram-abdoli.ir/video'}/>
+                <meta property="og:url" content={'https://www.shahramabdoli.ir/video'}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type, i: number) => (

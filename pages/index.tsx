@@ -37,7 +37,7 @@ export default function Home({ data } : any) {
       "@context": "https://schema.org/",
       "@type": "Person",
       "name": "Shahram abdoli",
-      "url": "https://www.shahram-abdoli.ir",
+      "url": "https://www.shahramabdoli.ir",
       "image": "/avatar.jpeg",
       "sameAs": [
         "https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
@@ -58,13 +58,13 @@ export default function Home({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahram-abdoli.ir/"/>
+                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/"/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
                 <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
                 <meta name="description"
                       content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                 <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
-                <meta property="og:url" content={'https://www.shahram-abdoli.ir'}/>
+                <meta property="og:url" content={'https://www.shahramabdoli.ir'}/>
                 <meta property="og:image" content={'/avatar.jpeg'}/>
             </Head>
             <Flex vertical>

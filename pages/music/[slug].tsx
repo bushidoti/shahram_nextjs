@@ -51,17 +51,17 @@ export default function Page({
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahram-abdoli.ir"
+          "item": "https://www.shahramabdoli.ir"
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "music",
-          "item": "https://www.shahram-abdoli.ir/music"
+          "item": "https://www.shahramabdoli.ir/music"
         },{
           "@type": "ListItem",
           "position": 3,
           "name": music[0].name,
-          "item": `https://www.shahram-abdoli.ir/music/${music[0].name}`
+          "item": `https://www.shahramabdoli.ir/music/${music[0].name}`
         }]
       }
 
@@ -78,14 +78,14 @@ export default function Page({
               dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
           />
           <title>{title}</title>
-          <link rel="alternate" hrefLang="fa-IR" href={`https://www.shahram-abdoli.ir/music/${music[0].name}`}/>
+          <link rel="alternate" hrefLang="fa-IR" href={`https://www.shahramabdoli.ir/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
           <meta name="keywords"
                 content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
           <meta name="description"
                 content={music[0].description}/>
           <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
-          <meta property="og:url" content={`https://www.shahram-abdoli.ir/music/${music[0].name}`}/>
+          <meta property="og:url" content={`https://www.shahramabdoli.ir/music/${music[0].name}`}/>
         </Head>
         {context.breakP ?
 
