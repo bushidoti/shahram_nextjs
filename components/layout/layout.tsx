@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Avatar, Layout, GetProps, Flex, Skeleton} from 'antd';
+import {Avatar, Layout, GetProps, Flex} from 'antd';
 import Icon , {UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import {Context} from "@/components/context"
 import dynamic from 'next/dynamic';
 const MenuLayout = dynamic(() => import('./menu_items'), {
-  ssr: true,
+  ssr: false,
 });
 
 const { Content, Footer, Sider } = Layout;
