@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'inventory.digitkey.ir',
+        hostname: 'api.shahramabdoli.ir',
         port: '',
         pathname: '/static_media/media/pic/**',
       },
