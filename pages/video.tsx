@@ -27,12 +27,12 @@ export default function Videos({ data } : any) {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahramabdoli.ir"
+          "item": `${process.env.APP_URL}`
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "video",
-          "item": "https://www.shahramabdoli.ir/video"
+          "item": `${process.env.APP_URL}/video`
         }]
       }
 
@@ -43,14 +43,14 @@ export default function Videos({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/video"/>
+                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/video`}/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
                 <meta name="description"
                       content={'موزیک ویدئو های شهرام عبدلی'}/>
                 <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahramabdoli.ir/video'}/>
+                <meta property="og:url" content={`${process.env.APP_URL}/video`}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type, i: number) => (
@@ -85,7 +85,7 @@ export default function Videos({ data } : any) {
 
 
 export async function getStaticProps() {
-    const res = await fetch(`https://inventory.digitkey.ir/music/`)
+    const res = await fetch(`${process.env.API}/music/`)
     const data = await res.json()
     return {
         props: {data},

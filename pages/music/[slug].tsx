@@ -16,7 +16,7 @@ import Head from "next/head";
 
 
 export async function getStaticPaths() {
-  const res = await fetch('https://inventory.digitkey.ir/music/')
+  const res = await fetch(`${process.env.API}/music/`)
   const musics = await res.json()
   const paths = musics.map((post: { name: string; }) => ({
     params: { slug: post.name.toLowerCase() },
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params } : any) {
-  const res = await fetch(`https://inventory.digitkey.ir/music/?name=${params.slug}`)
+  const res = await fetch(`${process.env.API}/music/?name=${params.slug}`)
   const music = await res.json()
   return { props: { music } }
 }
@@ -41,7 +41,6 @@ export default function Page({
       "name": music[0].name,
       "description": music[0].description,
       "thumbnailUrl": music[0].pic,
-      "uploadDate": music[0].release,
       "contentUrl": music[0].video
     }
   const schemaBreadcrumb = {
@@ -51,17 +50,17 @@ export default function Page({
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahramabdoli.ir"
+          "item": `${process.env.APP_URL}`
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "music",
-          "item": "https://www.shahramabdoli.ir/music"
+          "item": `${process.env.APP_URL}/music`
         },{
           "@type": "ListItem",
           "position": 3,
           "name": music[0].name,
-          "item": `https://www.shahramabdoli.ir/music/${music[0].name}`
+          "item": `${process.env.APP_URL}/music/${music[0].name}`
         }]
       }
 
@@ -78,14 +77,14 @@ export default function Page({
               dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
           />
           <title>{title}</title>
-          <link rel="alternate" hrefLang="fa-IR" href={`https://www.shahramabdoli.ir/music/${music[0].name}`}/>
+          <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
           <meta name="keywords"
                 content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
           <meta name="description"
                 content={music[0].description}/>
           <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>
-          <meta property="og:url" content={`https://www.shahramabdoli.ir/music/${music[0].name}`}/>
+          <meta property="og:url" content={`${process.env.APP_URL}/music/${music[0].name}`}/>
         </Head>
         {context.breakP ?
 

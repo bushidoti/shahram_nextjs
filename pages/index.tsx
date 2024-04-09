@@ -36,8 +36,8 @@ export default function Home({ data } : any) {
   const schemaPerson = {
       "@context": "https://schema.org/",
       "@type": "Person",
-      "name": "Shahram abdoli",
-      "url": "https://www.shahramabdoli.ir",
+      "name": "شهرام عبدلی",
+      "url": `${process.env.APP_URL}`,
       "image": "/avatar.jpeg",
       "sameAs": [
         "https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
@@ -52,19 +52,21 @@ export default function Home({ data } : any) {
 
     return (
         <>
-            <h1 hidden={true}>خواننده شهرام عبدلی - Shahram Abdoli</h1>
+            <h1 hidden={true}>شهرام عبدلی</h1>
             <Head>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/"/>
+                <link rel="canonical" href="https://www.shahram-abdoli.ir"/>
+                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/`}/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
-                <meta name="keywords" content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
+                <meta name="keywords"
+                      content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
                 <meta name="description"
                       content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                 <meta property="og:title" content={'خواننده شهرام عبدلی - Shahram Abdoli'}/>
-                <meta property="og:url" content={'https://www.shahramabdoli.ir'}/>
+                <meta property="og:url" content={`${process.env.APP_URL}`}/>
                 <meta property="og:image" content={'/avatar.jpeg'}/>
             </Head>
             <Flex vertical>
@@ -167,7 +169,7 @@ export default function Home({ data } : any) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`https://inventory.digitkey.ir/music/`)
+    const res = await fetch(`${process.env.API}/music/`)
     const data = await res.json()
     return {
         props: {data},

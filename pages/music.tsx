@@ -8,7 +8,6 @@ import 'react-h5-audio-player/lib/styles.css';
 import type { Metadata } from 'next'
 import Head from "next/head";
 import React from "react";
-const { Meta } = Card;
 
 interface Type {
     music : string,
@@ -32,12 +31,12 @@ export default function Music({ data } : any) {
           "@type": "ListItem",
           "position": 1,
           "name": "main",
-          "item": "https://www.shahramabdoli.ir"
+          "item": `${process.env.APP_URL}`
         },{
           "@type": "ListItem",
           "position": 2,
           "name": "music",
-          "item": "https://www.shahramabdoli.ir/music"
+          "item": `${process.env.APP_URL}/music`
         }]
       }
 
@@ -48,14 +47,14 @@ export default function Music({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/music"/>
+                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/music`}/>
                 <title>آهنگ - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
                 <meta name="description"
                       content={'آهنگ های شهرام عبدلی'}/>
                 <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
-                <meta property="og:url" content={'https://www.shahramabdoli.ir/music'}/>
+                <meta property="og:url" content={`${process.env.APP_URL}/music`}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
                 {data.map((value: Type, i: number) => (
@@ -67,7 +66,7 @@ export default function Music({ data } : any) {
                                 width={0}
                                 height={0}
                                 priority
-                                sizes="100vw"
+                                sizes="200px"
                                 className='w-[500px] h-[250px]'
                                 src={value.pic}
                                 alt={value.pic}
@@ -101,7 +100,7 @@ export default function Music({ data } : any) {
 
 
 export async function getStaticProps() {
-    const res = await fetch(`https://inventory.digitkey.ir/music/`)
+    const res = await fetch(`${process.env.API}/music/`)
     const data = await res.json()
     return {
         props: {data},
