@@ -69,12 +69,12 @@ export default function Home({ data } : any) {
                 <meta property="og:url" content={`${process.env.APP_URL}`}/>
                 <meta property="og:image" content={'/avatar.jpeg'}/>
             </Head>
-            <Flex vertical>
+            <Flex gap={20} vertical>
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>
                     <Flex vertical align={"center"} justify={"center"}>
                         <AutoComplete
                             options={data.map((item: { name: string }) => ({value: item.name}))}
-                            className="!mb-2"
+                            className="!mb-4"
                             filterOption={(inputValue, option: any) =>
                                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                             }
@@ -83,18 +83,18 @@ export default function Home({ data } : any) {
                                     placeholder="جستجو آهنگ ...." onSearch={onSearch}/>
                         </AutoComplete>
                         <Carousel dots={false} autoplaySpeed={2000}
-                                  className={'lg:!w-[40vw] md:w-[40vw] sm:w-[40vw] mobile:w-[80vw] w-[60vw]'} autoplay
+                                  className={'lg:!w-[40vw]  md:w-[40vw] sm:w-[40vw] mobile:w-[80vw] w-[60vw]'} autoplay
                                   effect="fade">
                             {data.map((value: Type, i: number) => (
                                 <Image
                                     key={`image${i}`}
-                                    className={`rounded mobile:h-[50vh] lg:h-[60vh] sm:h-[60vh] md:h-[60vh]`}
-                                    sizes={'300px'}
+                                    className={`rounded  mobile:h-[50vh] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                     placeholder="blur"
                                     blurDataURL={value.pic}
-                                    width={500}
+                                    width={150}
                                     loading={"eager"}
-                                    height={500}
+                                    height={150}
                                     src={value.pic}
                                     alt={value.name}
                                 />
@@ -104,26 +104,26 @@ export default function Home({ data } : any) {
                     <Flex vertical align={"center"} justify={"center"} gap={20}>
                         <h2><strong>لیست پخش</strong></h2>
                         <Card
-                            className='!bg-white !bg-clip-padding !backdrop-filter
+                            className='!bg-white  !bg-clip-padding !backdrop-filter
                         !backdrop-blur-sm !bg-opacity-5 shadow-2xl
                          lg:!w-[25vw] md:!w-[40vw] sm:!w-[40vw] mobile:!w-[80vw]'
                             cover={
                                 <Image
                                     src={data[playIndex].pic}
-                                    alt={data[playIndex].pic}
+                                    alt={data[playIndex].name}
                                     placeholder="blur"
                                     blurDataURL={data[playIndex].pic}
-                                    width={0}
+                                    width={150}
                                     loading={"eager"}
-                                    height={0}
-                                    sizes="200px"
-                                    className='w-[500px] h-[350px]'
+                                    height={150}
+                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                    className='w-[300px] h-[300px]'
                                 />
                             }
                         >
                             <div style={{direction: 'ltr'}}>
                                 <AudioPlayer
-                                    className='!border-none !bg-white !bg-clip-padding
+                                    className=' !border-none !bg-white !bg-clip-padding
                                  !backdrop-filter !backdrop-blur-sm !bg-opacity-10 '
                                     onEnded={handleClickNext}
                                     autoPlayAfterSrcChange={true}
@@ -142,18 +142,18 @@ export default function Home({ data } : any) {
                     </Flex>
 
                 </Flex>
+                <h2 className='my-2'>موزیک های اخیر</h2>
                 <div className='overflow-auto'>
-                    <h2 className='my-2'>موزیک های اخیر</h2>
                     <Flex gap={20}>
                         {data.slice(0).reverse().map((value: Type, i: number) => (
                             <Link rel='canonical' key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
                                 <Image
                                     key={`image${i}`}
                                     loading={"eager"}
-                                    className='object-fill rounded w-[250px] h-[250px]'
-                                    width={250}
-                                    height={250}
-                                    sizes={'200px'}
+                                    className='object-cover rounded w-[250px] h-[250px]'
+                                    width={150}
+                                    height={150}
+                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 150px"
                                     placeholder="blur"
                                     blurDataURL={value.pic}
                                     src={value.pic}
@@ -173,6 +173,6 @@ export async function getStaticProps() {
     const data = await res.json()
     return {
         props: {data},
-        revalidate: 3600
+        revalidate: 604799
     }
 }
