@@ -8,7 +8,7 @@ import Image from "next/image";
 import React, {useContext} from "react";
 import {Context} from "@/components/context";
 import {DownloadOutlined} from "@ant-design/icons";
-import {AppleIcon, SpotIcon} from "@/components/layout/layout";
+import {AppleIcon, SpotIcon, YoutubeIcon} from "@/components/layout/layout";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -33,6 +33,7 @@ export async function getStaticProps({ params } : any) {
 export default function Page({
   music,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+
   const context = useContext(Context)
   const title = ` آهنگ ${music[0].name}`
   const schemaVideo = {
@@ -63,7 +64,6 @@ export default function Page({
           "item": `${process.env.APP_URL}/music/${music[0].name}`
         }]
       }
-
   return (
       <>
         <Head>
@@ -91,64 +91,70 @@ export default function Page({
             <>
               <h1 className='text-center mb-2'>{music[0].name}</h1>
               <Flex gap={10} justify={"center"} wrap="wrap" align={"center"}>
-                      <Flex className='w-full' gap={20} wrap='wrap'  justify={"center"} align={"center"}>
-                          {music[0].video ?
-                              <div className='w-[300px]'>
-                                <main>
+                  <Flex className='w-full' gap={20} wrap='wrap' justify={"center"} align={"center"}>
+                      {music[0].video ?
+                          <div className='w-[300px]'>
+                              <main>
                                   <video className='rounded w-full h-full' poster={music[0].pic}
                                          aria-label={music[0].name}
                                          width={250} height={250}
                                          controls preload={'none'}>
-                                    <source src={music[0].video} type="video/mp4"/>
-                                    مرورگر شما این قابلیت را پشتیبانی نمیکند
+                                      <source src={music[0].video} type="video/mp4"/>
+                                      مرورگر شما این قابلیت را پشتیبانی نمیکند
                                   </video>
-                                </main>
-                              </div>
-                              :
-                              <Image
-                                  width={0}
-                                  height={0}
-                                  priority
-                                  sizes="100vw"
-                                  className='w-[250px] h-full rounded'
-                                  src={music[0].pic}
-                                  alt={music[0].pic}
-                              />
-                          }
+                              </main>
+                          </div>
+                          :
+                          <Image
+                              width={0}
+                              height={0}
+                              priority
+                              sizes="100vw"
+                              className='w-[250px] h-full rounded'
+                              src={music[0].pic}
+                              alt={music[0].pic}
+                          />
+                      }
 
-                          <Flex vertical justify={'space-between'} align={'flex-start'}>
-                              <Flex gap={10}>
-                                  <div>
-                                      <label className='text-center mb-2'>دانلود mp3 : </label>
-                                      <Button download htmlType={"button"} type='primary' target='_self'
-                                              href={music[0].music}><DownloadOutlined/></Button>
-                                  </div>
-                                  <div>
-                                      <label className='text-center mb-2'>دانلود موزیک ویدئو : </label>
-                                      <Button download htmlType={"button"} type='primary' target='_self'
-                                              href={music[0].video}><DownloadOutlined/></Button>
-                                  </div>
-                              </Flex>
-                          </Flex>
-                          <Flex gap={10} justify={"center"} align={"center"}>
-                            {music[0].apple || music[0].spotify ?
-                                <label className='text-center mb-2'>لینک ها : </label>
-                                : null}
-                              {
-                                music[0].apple ?
-                                    <Link  rel='noopener' target='_blank' href={music[0].apple}><AppleIcon/></Link>
-                                    : null
-                              }
-                              {
-                                music[0].spotify ?
-                                    <Link  rel='noopener' target='_blank' href={music[0].spotify}><SpotIcon/></Link>
-                                    : null
-                              }
+                      <Flex vertical justify={'space-between'} align={'flex-start'}>
+                          <Flex gap={10}>
+                              <div>
+                                  <label className='text-center mb-2'>دانلود mp3 : </label>
+                                  <Button download htmlType={"button"} type='primary' target='_self'
+                                          href={music[0].music}><DownloadOutlined/></Button>
+                              </div>
+                              <div>
+                                  <label className='text-center mb-2'>دانلود موزیک ویدئو : </label>
+                                  <Button download htmlType={"button"} type='primary' target='_self'
+                                          href={music[0].video}><DownloadOutlined/></Button>
+                              </div>
                           </Flex>
                       </Flex>
-                      <div className='w-full' style={{direction: 'ltr'}}>
-                          <AudioPlayer
-                              layout="horizontal"
+                      <h3 className='text-center mb-2 flex gap-1'>سال انتشار : <p>{music[0].release}</p></h3>
+                      <Flex gap={10} justify={"center"} align={"center"}>
+                          {music[0].apple || music[0].spotify ?
+                              <label className='text-center mb-2'>لینک ها : </label>
+                              : null}
+                          {
+                              music[0].apple ?
+                                  <Link rel='noopener' target='_blank' href={music[0].apple}><AppleIcon/></Link>
+                                  : null
+                          }
+                          {
+                              music[0].spotify ?
+                                  <Link rel='noopener' target='_blank' href={music[0].spotify}><SpotIcon/></Link>
+                                  : null
+                          }
+                          {
+                              music[0].youtube ?
+                                  <Link target='_blank' href={music[0].youtube}><YoutubeIcon/></Link>
+                                  : null
+                          }
+                      </Flex>
+                  </Flex>
+                  <div className='w-full' style={{direction: 'ltr'}}>
+                      <AudioPlayer
+                          layout="horizontal"
                               customVolumeControls={[]}
                               className='!border-none !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-10'
                               key={`player`}
@@ -187,7 +193,7 @@ export default function Page({
 
                           <Flex vertical justify={'space-between'} align={'flex-start'}>
                             <h1 className='text-center mb-2'>{music[0].name}</h1>
-                            <h3 className='text-center mb-2'>سال انتشار : {music[0].release}</h3>
+                              <h3 className='text-center mb-2 flex gap-1'>سال انتشار : <p>{music[0].release}</p></h3>
                             <Flex gap={10} justify={"center"} align={"center"}>
                                 {music[0].apple || music[0].spotify ?
                                 <label className='text-center mb-2'>لینک ها : </label>
@@ -199,6 +205,11 @@ export default function Page({
                               {
                                 music[0].spotify ?
                                     <Link target='_blank' href={music[0].spotify}><SpotIcon/></Link>
+                                    : null
+                              }
+                              {
+                                music[0].youtube ?
+                                    <Link target='_blank' href={music[0].youtube}><YoutubeIcon/></Link>
                                     : null
                               }
                             </Flex>

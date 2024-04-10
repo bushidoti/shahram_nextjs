@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Avatar, Layout, GetProps, Flex} from 'antd';
 import Icon , {UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import {Context} from "@/components/context"
 import dynamic from 'next/dynamic';
 const MenuLayout = dynamic(() => import('./menu_items'), {
-  ssr: false,
+  ssr: true,
 });
 
 const { Content, Footer, Sider } = Layout;
@@ -29,11 +29,33 @@ export const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
                                  width={48} height={48} alt={'Spotify'} src="/spotify.png" />)} {...props} />
 );
 
+export const YoutubeIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={() => (<Image className='w-[48px] h-[48px]'
+                                 width={48} height={48} alt={'Spotify'} src="/youtube.png" />)} {...props} />
+);
+
+interface Type {
+    apple : string,
+    pic : string,
+    spotify : string,
+    youtube : string,
+    insta : string,
+}
 
 export default function Main({ children }: any) {
   const [breakP , setBreakP] = useState<boolean>(false)
   const [collapse , setCollapse] = useState<boolean>()
   const [siderW , setSiderW] = useState<number>()
+  const [data, setData] = useState<Type>()
+
+  useEffect(() => {
+    fetch('https://api.shahramabdoli.ir/panel/')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data[0])
+      })
+  }, [])
+
 
   return (
     <Layout className='!bg-white !bg-clip-padding !bg-opacity-0' hasSider={true}>
@@ -60,13 +82,18 @@ export default function Main({ children }: any) {
                                    }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar src={<Image priority width={100} height={100} src={'/avatar.jpeg'} alt={'Avatar'}/>} className='bg-sky-500 m-5' size={100} icon={<UserOutlined/>}/>
+                <Avatar src={<Image priority width={100} height={100} src={data?.pic || '/avatar.jpeg'} alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500' size={100} icon={<UserOutlined/>}/>
             </div>
             <MenuLayout/>
-            <Flex  align='center' justify='center' gap={10} className='absolute w-full bottom-0 bg-gray-500 rounded'>
-                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='}><InstaIcon/></Link>
-                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://music.apple.com/us/artist/shahram-abdoli/1724411194'}><AppleIcon/></Link>
-                <Link hidden={collapse} rel='noopener' target='_blank' href={'https://open.spotify.com/artist/0J6quVdkvtJUYUHIo9hqZk?si=F7kiDJjITrapVp8SFVkAZQ'}><SpotIcon/></Link>
+            <Flex  align='center' justify='center' gap={breakP ? 10 : 1} className='absolute w-full bottom-0 bg-gray-500 rounded'>
+                {data?.insta ?  <Link hidden={collapse}
+                  rel='noopener' target='_blank' href={data?.insta}><InstaIcon/></Link> : null}
+                {data?.apple ? <Link hidden={collapse}
+                  rel='noopener' target='_blank' href={data?.apple}><AppleIcon/></Link> : null}
+                {data?.spotify ? <Link hidden={collapse}
+                  rel='noopener' target='_blank' href={data?.spotify}><SpotIcon/></Link> : null}
+                {data?.youtube ? <Link hidden={collapse}
+                  rel='noopener' target='_blank' href={data?.youtube || '#'}><YoutubeIcon/></Link> : null}
             </Flex>
         </Sider>
         <Layout className="!bg-white !bg-clip-padding !backdrop-filter !bg-opacity-0">
@@ -92,3 +119,4 @@ export default function Main({ children }: any) {
     </Layout>
   );
 };
+

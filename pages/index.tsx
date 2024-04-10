@@ -13,6 +13,9 @@ import 'react-h5-audio-player/lib/styles.css';
 interface Type {
     music : string,
     pic : string,
+    carousel1 : string,
+    carousel2 : string,
+    carousel3 : string,
     video : string,
     name : string,
     description : string,
@@ -21,16 +24,16 @@ interface Type {
 const { Search } = Input;
 
 
-export default function Home({ data } : any) {
+export default function Home({ dataMusic , dataPanel } : any) {
     const router = useRouter()
     const [playIndex , setPlayIndex] = useState<number>(0)
 
     function handleClickPrevious () {
-        setPlayIndex(prevState => prevState === 0 ? data.length - 1 : prevState - 1)
+        setPlayIndex(prevState => prevState === 0 ? dataMusic.length - 1 : prevState - 1)
     }
 
      function handleClickNext () {
-        setPlayIndex(prevState => prevState < data.length - 1 ? prevState + 1 : 0)
+        setPlayIndex(prevState => prevState < dataMusic.length - 1 ? prevState + 1 : 0)
     }
 
   const schemaPerson = {
@@ -47,7 +50,7 @@ export default function Home({ data } : any) {
     }
 
     const onSearch: SearchProps['onSearch'] = (value, _e) =>
-        router.push(`music/${data.map((item : {name : string}) => ({value: item.name.toLowerCase()}))
+        router.push(`music/${dataMusic.map((item : {name : string}) => ({value: item.name.toLowerCase()}))
             .filter( (page:any) => page['value'].includes(value.toLowerCase()))[0].value}`);
 
     return (
@@ -73,7 +76,7 @@ export default function Home({ data } : any) {
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>
                     <Flex vertical align={"center"} justify={"center"}>
                         <AutoComplete
-                            options={data.map((item: { name: string }) => ({value: item.name}))}
+                            options={dataMusic.map((item: { name: string }) => ({value: item.name}))}
                             className="!mb-4"
                             filterOption={(inputValue, option: any) =>
                                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
@@ -85,20 +88,39 @@ export default function Home({ data } : any) {
                         <Carousel dots={false} autoplaySpeed={2000}
                                   className={'lg:!w-[40vw]  md:w-[40vw] sm:w-[40vw] mobile:w-[80vw] w-[60vw]'} autoplay
                                   effect="fade">
-                            {data.map((value: Type, i: number) => (
-                                <Image
-                                    key={`image${i}`}
-                                    className={`rounded  mobile:h-[50vh] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                            <Image
+                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                     sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                     placeholder="blur"
-                                    blurDataURL={value.pic}
+                                    blurDataURL={dataPanel[0].carousel1  || '/bio.jpeg'}
                                     width={150}
                                     loading={"eager"}
                                     height={150}
-                                    src={value.pic}
-                                    alt={value.name}
-                                />
-                            ))}
+                                    src={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                    alt={dataPanel[0].carousel1 || '/bio.jpeg'}
+                            />
+                            <Image
+                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                    placeholder="blur"
+                                    blurDataURL={dataPanel[0].carousel2  || '/bio.jpeg'}
+                                    width={150}
+                                    loading={"eager"}
+                                    height={150}
+                                    src={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                    alt={dataPanel[0].carousel2 || '/bio.jpeg'}
+                            />
+                            <Image
+                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                    placeholder="blur"
+                                    blurDataURL={dataPanel[0].carousel3  || '/bio.jpeg'}
+                                    width={150}
+                                    loading={"eager"}
+                                    height={150}
+                                    src={dataPanel[0].carousel3 || '/bio.jpeg'}
+                                    alt={dataPanel[0].carousel3 || '/bio.jpeg' }
+                            />
                         </Carousel>
                     </Flex>
                     <Flex vertical align={"center"} justify={"center"} gap={20}>
@@ -109,10 +131,10 @@ export default function Home({ data } : any) {
                          lg:!w-[25vw] md:!w-[40vw] sm:!w-[40vw] mobile:!w-[80vw]'
                             cover={
                                 <Image
-                                    src={data[playIndex].pic}
-                                    alt={data[playIndex].name}
+                                    src={dataMusic[playIndex].pic}
+                                    alt={dataMusic[playIndex].name}
                                     placeholder="blur"
-                                    blurDataURL={data[playIndex].pic}
+                                    blurDataURL={dataMusic[playIndex].pic}
                                     width={150}
                                     loading={"eager"}
                                     height={150}
@@ -130,10 +152,10 @@ export default function Home({ data } : any) {
                                     showSkipControls={true}
                                     preload={"none"}
                                     customVolumeControls={[]}
-                                    footer={<h4 className='text-center'>{data[playIndex].description}</h4>}
-                                    header={<h2 className='text-center'>{data[playIndex].name}</h2>}
+                                    footer={<h4 className='text-center'>{dataMusic[playIndex].description}</h4>}
+                                    header={<h2 className='text-center'>{dataMusic[playIndex].name}</h2>}
                                     showJumpControls={false}
-                                    src={data[playIndex].music}
+                                    src={dataMusic[playIndex].music}
                                     onClickPrevious={handleClickPrevious}
                                     onClickNext={handleClickNext}
                                 />
@@ -145,7 +167,7 @@ export default function Home({ data } : any) {
                 <h2 className='my-2'>موزیک های اخیر</h2>
                 <div className='overflow-auto'>
                     <Flex gap={20}>
-                        {data.slice(0).reverse().map((value: Type, i: number) => (
+                        {dataMusic.slice(0).reverse().map((value: Type, i: number) => (
                             <Link rel='canonical' key={`Link${i}`} href={`/music/${value.name.toLowerCase()}`}>
                                 <Image
                                     key={`image${i}`}
@@ -169,10 +191,12 @@ export default function Home({ data } : any) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`${process.env.API}/music/`)
-    const data = await res.json()
+    const music = await fetch(`${process.env.API}/music/`)
+    const panel = await fetch(`${process.env.API}/panel/`)
+    const dataMusic = await music.json()
+    const dataPanel = await panel.json()
     return {
-        props: {data},
+        props: {dataMusic,dataPanel},
         revalidate: 604799
     }
 }

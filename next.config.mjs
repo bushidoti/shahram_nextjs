@@ -11,7 +11,7 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
-  transpilePackages: [ 'antd', '@ant-design', 'rc-util', 'rc-pagination', 'rc-picker', 'rc-tree', "rc-table", 'rc-notification', 'rc-tooltip' ]
+  transpilePackages: [ 'antd', '@ant-design', 'rc-util', 'rc-pagination', 'rc-picker', 'rc-tree', "rc-table", 'rc-notification', 'rc-tooltip', 'rc-tooltip' ]
 };
 
 export default nextConfig;

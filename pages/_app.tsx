@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 import fa_IR from "antd/lib/locale/fa_IR";
 import dynamic from 'next/dynamic';
 const Main = dynamic(() => import('@/components/layout/layout'), {
-  ssr: false,
+  ssr: true,
 });
 
 const App = ({ Component, pageProps }: AppProps) => (

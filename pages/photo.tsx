@@ -50,7 +50,7 @@ export default function Photo({ data } : any) {
                             width={250}
                             height={250}
                             src={value.pic}
-                            alt={value.name}
+                            alt={value.pic}
                           />
                 ))}
            </Flex>
@@ -60,7 +60,7 @@ export default function Photo({ data } : any) {
 
 
 export async function getStaticProps() {
-    const res = await fetch(`${process.env.API}/music/`)
+    const res = await fetch(`${process.env.API}/selfie/`)
     const data = await res.json()
     return {
         props: {data},
