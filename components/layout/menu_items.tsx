@@ -71,7 +71,7 @@ const MenuLayout = () => {
             mode="inline"
             items={items}
             onClick={() => {
-                context.setCollapse(true)
+                if (context.breakP) context.setCollapse(true)
             }}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
