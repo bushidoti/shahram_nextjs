@@ -2,10 +2,11 @@ import {Menu, MenuProps} from "antd";
 import {
     HomeOutlined, PictureOutlined, UserOutlined, VideoCameraOutlined,
 } from '@ant-design/icons';
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import {Context} from "@/components/context";
 
 
 
@@ -40,6 +41,7 @@ const MenuLayout = () => {
   const [openKeys, setOpenKeys] = useState(['']);
   const router = useRouter();
   const path = router.pathname;
+  const context = useContext(Context)
 
 
 
@@ -68,6 +70,9 @@ const MenuLayout = () => {
             defaultSelectedKeys={[path]}
             mode="inline"
             items={items}
+            onClick={() => {
+                context.setCollapse(true)
+            }}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
          />

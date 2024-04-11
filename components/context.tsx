@@ -9,9 +9,11 @@ type SetValueAny = (_value: (oldArray: any) => any[]) => void;
 type ContextType = {
     breakP:boolean
     setBreakP: SetValueBool;
+    setCollapse: SetValueBool;
 };
 
 export const Context = createContext<ContextType>({
     setBreakP:() => {},
+    setCollapse:() => {},
     breakP: false,
 })

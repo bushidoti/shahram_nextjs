@@ -85,41 +85,41 @@ export default function Home({ dataMusic , dataPanel } : any) {
                             <Search className="lg:!w-[40vw] md:!w-[40vw] sm:!w-[40vw] mobile:!w-[80vw]"
                                     placeholder="جستجو آهنگ ...." onSearch={onSearch}/>
                         </AutoComplete>
-                        <Carousel dots={false} autoplaySpeed={2000}
+                        <Carousel dots={false} autoplaySpeed={5000}
                                   className={'lg:!w-[40vw]  md:w-[40vw] sm:w-[40vw] mobile:w-[80vw] w-[60vw]'} autoplay
                                   effect="fade">
                             <Image
-                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
-                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
-                                    placeholder="blur"
-                                    blurDataURL={dataPanel[0].carousel1  || '/bio.jpeg'}
-                                    width={150}
-                                    loading={"eager"}
-                                    height={150}
-                                    src={dataPanel[0].carousel1 || '/bio.jpeg'}
-                                    alt={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                placeholder="blur"
+                                blurDataURL={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                width={150}
+                                loading={"eager"}
+                                height={150}
+                                src={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                alt={dataPanel[0].carousel1 || '/bio.jpeg'}
                             />
                             <Image
-                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
-                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
-                                    placeholder="blur"
-                                    blurDataURL={dataPanel[0].carousel2  || '/bio.jpeg'}
-                                    width={150}
-                                    loading={"eager"}
-                                    height={150}
-                                    src={dataPanel[0].carousel2 || '/bio.jpeg'}
-                                    alt={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                placeholder="blur"
+                                blurDataURL={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                width={150}
+                                loading={"eager"}
+                                height={150}
+                                src={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                alt={dataPanel[0].carousel2 || '/bio.jpeg'}
                             />
                             <Image
-                                    className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
-                                    sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
-                                    placeholder="blur"
-                                    blurDataURL={dataPanel[0].carousel3  || '/bio.jpeg'}
-                                    width={150}
-                                    loading={"eager"}
-                                    height={150}
-                                    src={dataPanel[0].carousel3 || '/bio.jpeg'}
-                                    alt={dataPanel[0].carousel3 || '/bio.jpeg' }
+                                className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
+                                sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
+                                placeholder="blur"
+                                blurDataURL={dataPanel[0].carousel3 || '/bio.jpeg'}
+                                width={150}
+                                loading={"eager"}
+                                height={150}
+                                src={dataPanel[0].carousel3 || '/bio.jpeg'}
+                                alt={dataPanel[0].carousel3 || '/bio.jpeg'}
                             />
                         </Carousel>
                     </Flex>
@@ -196,7 +196,7 @@ export async function getStaticProps() {
     const dataMusic = await music.json()
     const dataPanel = await panel.json()
     return {
-        props: {dataMusic,dataPanel},
+        props: {dataMusic, dataPanel},
         revalidate: 604799
     }
 }

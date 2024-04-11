@@ -44,9 +44,10 @@ interface Type {
 
 export default function Main({ children }: any) {
   const [breakP , setBreakP] = useState<boolean>(false)
-  const [collapse , setCollapse] = useState<boolean>()
+  const [collapse , setCollapse] = useState<boolean>(true)
   const [siderW , setSiderW] = useState<number>()
   const [data, setData] = useState<Type>()
+
 
   useEffect(() => {
     fetch('https://api.shahramabdoli.ir/panel/')
@@ -61,6 +62,7 @@ export default function Main({ children }: any) {
     <Layout className='!bg-white !bg-clip-padding !bg-opacity-0' hasSider={true}>
         <Sider
             width={siderW}
+            collapsed={collapse}
             breakpoint="lg"
             className={breakP ? 'rounded !fixed  !z-[99] !h-[100vh] top-0 right-0' +
                 ' bottom-0 !bg-green-900 !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-90'
@@ -72,19 +74,25 @@ export default function Main({ children }: any) {
                 setCollapse(collapsed)
             }}
             onBreakpoint={broken => {
-                                       if (broken) {
-                                           setSiderW(300)
-                                           setBreakP(true)
-                                       } else {
-                                           setSiderW(200)
-                                           setBreakP(false)
-                                       }
-                                   }}
+               if (broken) {
+                   setSiderW(300)
+                   setBreakP(true)
+               } else {
+                   setSiderW(200)
+                   setBreakP(false)
+               }
+            }}
         >
             <div className='flex flex-col items-center m-5'>
                 <Avatar src={<Image priority width={100} height={100} src={data?.pic || '/avatar.jpeg'} alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500' size={100} icon={<UserOutlined/>}/>
             </div>
-            <MenuLayout/>
+              <Context.Provider value={{
+                        breakP,
+                        setCollapse,
+                        setBreakP
+                    }}>
+                  <MenuLayout/>
+              </Context.Provider>
             <Flex  align='center' justify='center' gap={breakP ? 10 : 1} className='absolute w-full bottom-0 bg-gray-500 rounded'>
                 {data?.insta ?  <Link hidden={collapse}
                   rel='noopener' target='_blank' href={data?.insta}><InstaIcon/></Link> : null}
@@ -103,6 +111,7 @@ export default function Main({ children }: any) {
                     style={{padding: 24}}>
                     <Context.Provider value={{
                         breakP,
+                        setCollapse,
                         setBreakP
                     }}>
                       <main>{children}</main>
