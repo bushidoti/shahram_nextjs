@@ -196,6 +196,6 @@ export async function getStaticProps() {
     const dataPanel = await panel.json()
     return {
         props: {dataMusic, dataPanel},
-        revalidate: 604799
+        revalidate: 3600
     }
 }

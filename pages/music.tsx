@@ -104,6 +104,6 @@ export async function getStaticProps() {
     const data = await res.json()
     return {
         props: {data},
-        revalidate: 604799
+        revalidate: 3600
     }
 }
