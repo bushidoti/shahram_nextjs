@@ -1,43 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Layout, GetProps, Flex} from 'antd';
-import Icon , {UserOutlined} from "@ant-design/icons";
+import {Avatar, Layout, Flex, Menu, Button} from 'antd';
+import {MenuOutlined, UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import {Context} from "@/components/context"
 import dynamic from 'next/dynamic';
+import {AppleIcon, InstaIcon, ShazamIcon, SpotIcon, YoutubeIcon} from "@/components/icons";
 const MenuLayout = dynamic(() => import('./menu_items'), {
   ssr: true,
 });
 
-const { Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
-type CustomIconComponentProps = GetProps<typeof Icon>;
-
-export const InstaIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={() => (<Image width={48} height={48}
-                                 alt={'Instagram'} src="/insta.png" />)} {...props} />
-);
-
-
-export const AppleIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                 width={48} height={48} alt={'Apple'} src="/apple.png" />)} {...props} />
-);
-
-export const SpotIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                 width={48} height={48} alt={'Spotify'} src="/spotify.png" />)} {...props} />
-);
-
-export const YoutubeIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={() => (<Image className='w-[48px] h-[48px]'
-                                 width={48} height={48} alt={'Spotify'} src="/youtube.png" />)} {...props} />
-);
 
 interface Type {
     apple : string,
     pic : string,
     spotify : string,
+    shazam : string,
     youtube : string,
     insta : string,
 }
@@ -70,6 +50,7 @@ export default function Main({ children }: any) {
                 '!fixed !h-[98.2vh] !bg-white !bg-clip-padding !backdrop-filter ' +
                 '!backdrop-blur-sm !bg-opacity-30 rounded mt-2 ms-2'}
             collapsedWidth={0}
+            zeroWidthTriggerStyle={{display:collapse ? 'none' : '' }}
             onCollapse={(collapsed) => {
                 setCollapse(collapsed)
             }}
@@ -84,7 +65,9 @@ export default function Main({ children }: any) {
             }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar src={<Image priority width={100} height={100} src={data?.pic || '/avatar.jpeg'} alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500' size={100} icon={<UserOutlined/>}/>
+                <Avatar src={<Image priority sizes={'100px'} width={100} height={100} src={data?.pic || '/avatar.jpeg'}
+                    alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500'
+                        size={100} icon={<UserOutlined/>}/>
             </div>
               <Context.Provider value={{
                         breakP,
@@ -93,7 +76,7 @@ export default function Main({ children }: any) {
                     }}>
                   <MenuLayout/>
               </Context.Provider>
-            <Flex  align='center' justify='center' gap={breakP ? 10 : 1}
+            <Flex align='center' justify='center' wrap={"wrap"} gap={breakP ? 10 : 1}
                    className={breakP ? 'w-full': 'w-full absolute bottom-0 bg-gray-500 rounded' }>
                 {data?.insta ?  <Link hidden={collapse}
                   rel='noopener' target='_blank' href={data?.insta}><InstaIcon/></Link> : null}
@@ -103,12 +86,29 @@ export default function Main({ children }: any) {
                   rel='noopener' target='_blank' href={data?.spotify}><SpotIcon/></Link> : null}
                 {data?.youtube ? <Link hidden={collapse}
                   rel='noopener' target='_blank' href={data?.youtube || '#'}><YoutubeIcon/></Link> : null}
+                 {data?.shazam ? <Link hidden={collapse}
+                  rel='noopener' target='_blank' href={data?.shazam || '#'}><ShazamIcon/></Link> : null}
             </Flex>
         </Sider>
         <Layout className="!bg-white !bg-clip-padding !backdrop-filter !bg-opacity-0">
+             <Header hidden={!breakP}   style={{
+                  position: 'sticky',
+                  top: 0,
+                  zIndex: 1,
+                  display: breakP ?  'flex' : '',
+                  alignItems: 'center',
+                }}  className={"m-2 rounded !bg-white !bg-clip-padding" +
+                 " !backdrop-filter !backdrop-blur-sm !bg-opacity-30"}>
+                 <Flex gap={10} align={"center"} justify={"center"}>
+                   <Button onClick={() => setCollapse(false)}><MenuOutlined/></Button>
+                   <Avatar src={<Image priority sizes={'48px'} width={48} height={48} src={data?.pic || '/avatar.jpeg'}
+                    alt={'Avatar'}/>} className='bg-sky-500 !border-solid !border-2 !border-blue-500'
+                        size={48} icon={<UserOutlined/>}/>
+                 </Flex>
+             </Header>
             <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
                 <div
-                    className='rounded overflow-auto h-[100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
+                    className='rounded !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
                     style={{padding: 24}}>
                     <Context.Provider value={{
                         breakP,

@@ -5,6 +5,7 @@ const theme: ThemeConfig = {
             Layout: {
                 triggerColor:'rgb(14 165 233)',
                 bodyBg:'#365314',
+                headerPadding:'0 10px',
                 footerBg:'#047857',
                 siderBg:'#134405',
             },

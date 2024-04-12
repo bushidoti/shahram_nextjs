@@ -8,9 +8,9 @@ import Image from "next/image";
 import React, {useContext} from "react";
 import {Context} from "@/components/context";
 import {DownloadOutlined} from "@ant-design/icons";
-import {AppleIcon, SpotIcon, YoutubeIcon} from "@/components/layout/layout";
 import Link from "next/link";
 import Head from "next/head";
+import {AppleIcon, ShazamIcon, SpotIcon, YoutubeIcon} from "@/components/icons";
 
 
 
@@ -139,15 +139,17 @@ export default function Page({
                               music[0].apple ?
                                   <Link rel='noopener' target='_blank' href={music[0].apple}><AppleIcon/></Link>
                                   : null
-                          }
-                          {
+                          }{
                               music[0].spotify ?
                                   <Link rel='noopener' target='_blank' href={music[0].spotify}><SpotIcon/></Link>
                                   : null
-                          }
-                          {
+                          }{
                               music[0].youtube ?
                                   <Link target='_blank' href={music[0].youtube}><YoutubeIcon/></Link>
+                                  : null
+                          }{
+                              music[0].shazam ?
+                                  <Link target='_blank' href={music[0].shazam}><ShazamIcon/></Link>
                                   : null
                           }
                       </Flex>
@@ -197,20 +199,23 @@ export default function Page({
                             <Flex gap={10} justify={"center"} align={"center"}>
                                 {music[0].apple || music[0].spotify ?
                                 <label className='text-center mb-2'>لینک ها : </label>
-                                : null}                              {
+                                : null}
+                              {
                                 music[0].apple ?
                                     <Link target='_blank' href={music[0].apple}><AppleIcon/></Link>
                                     : null
-                              }
-                              {
+                              }{
                                 music[0].spotify ?
                                     <Link target='_blank' href={music[0].spotify}><SpotIcon/></Link>
                                     : null
-                              }
-                              {
+                              }{
                                 music[0].youtube ?
                                     <Link target='_blank' href={music[0].youtube}><YoutubeIcon/></Link>
                                     : null
+                              }{
+                              music[0].shazam ?
+                                  <Link target='_blank' href={music[0].shazam}><ShazamIcon/></Link>
+                                  : null
                               }
                             </Flex>
                             <Flex gap={10}>
