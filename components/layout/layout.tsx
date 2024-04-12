@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Layout, Flex, Menu, Button} from 'antd';
+import {Avatar, Layout, Flex, Button} from 'antd';
 import {MenuOutlined, UserOutlined} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -100,10 +100,10 @@ export default function Main({ children }: any) {
                 }}  className={"m-2 rounded !bg-white !bg-clip-padding" +
                  " !backdrop-filter !backdrop-blur-sm !bg-opacity-30"}>
                  <Flex gap={10} align={"center"} justify={"center"}>
-                   <Button onClick={() => setCollapse(false)}><MenuOutlined/></Button>
-                   <Avatar src={<Image priority sizes={'48px'} width={48} height={48} src={data?.pic || '/avatar.jpeg'}
+                   <Button className='bg-gray-950' shape="circle" type={"primary"} onClick={() => setCollapse(false)}><MenuOutlined/></Button>
+                   <Avatar src={<Image priority sizes={'52px'} width={52} height={52} src={data?.pic || '/avatar.jpeg'}
                     alt={'Avatar'}/>} className='bg-sky-500 !border-solid !border-2 !border-blue-500'
-                        size={48} icon={<UserOutlined/>}/>
+                        size={55} icon={<UserOutlined/>}/>
                  </Flex>
              </Header>
             <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
