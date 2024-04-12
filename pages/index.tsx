@@ -61,7 +61,6 @@ export default function Home({ dataMusic , dataPanel } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
                 />
-                <link rel="canonical" href="https://www.shahram-abdoli.ir"/>
                 <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/`}/>
                 <title>خواننده شهرام عبدلی - Shahram Abdoli</title>
                 <meta name="keywords"
@@ -78,7 +77,7 @@ export default function Home({ dataMusic , dataPanel } : any) {
                         <AutoComplete
                             options={dataMusic.map((item: { name: string }) => ({value: item.name}))}
                             className="!mb-4"
-                            filterOption={(inputValue, option: any) =>
+                            filterOption={(inputValue: string, option: any) =>
                                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                             }
                         >

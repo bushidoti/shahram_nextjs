@@ -6,7 +6,7 @@ import Link from "next/link";
 import {Context} from "@/components/context"
 import dynamic from 'next/dynamic';
 const MenuLayout = dynamic(() => import('./menu_items'), {
-  ssr: true,
+  ssr: false,
 });
 
 const { Content, Footer, Sider } = Layout;
@@ -93,7 +93,8 @@ export default function Main({ children }: any) {
                     }}>
                   <MenuLayout/>
               </Context.Provider>
-            <Flex  align='center' justify='center' gap={breakP ? 10 : 1} className='absolute w-full bottom-0 bg-gray-500 rounded'>
+            <Flex  align='center' justify='center' gap={breakP ? 10 : 1}
+                   className={breakP ? 'w-full': 'w-full absolute bottom-0 bg-gray-500 rounded' }>
                 {data?.insta ?  <Link hidden={collapse}
                   rel='noopener' target='_blank' href={data?.insta}><InstaIcon/></Link> : null}
                 {data?.apple ? <Link hidden={collapse}
@@ -128,4 +129,3 @@ export default function Main({ children }: any) {
     </Layout>
   );
 };
-
