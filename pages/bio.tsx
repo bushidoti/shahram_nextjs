@@ -4,8 +4,8 @@ import {UserOutlined} from "@ant-design/icons";
 import React, {useContext} from "react";
 import {Context} from "@/components/context";
 import Link from "next/link";
-import {AppleIcon, InstaIcon, SpotIcon, YoutubeIcon} from "@/components/layout/layout";
 import Head from "next/head";
+import {AppleIcon, InstaIcon, ShazamIcon, SpotIcon, YoutubeIcon} from "@/components/icons";
 
 export default function Bio({ data } : any) {
 
@@ -61,6 +61,8 @@ export default function Bio({ data } : any) {
                               rel='noopener' target='_blank' href={data[0]?.spotify}><SpotIcon/></Link> : null}
                             {data[0]?.youtube ? <Link
                               rel='noopener' target='_blank' href={data[0]?.youtube || '#'}><YoutubeIcon/></Link> : null}
+                            {data[0]?.shazam ? <Link
+                              rel='noopener' target='_blank' href={data[0]?.shazam || '#'}><ShazamIcon/></Link> : null}
                         </Flex>
                     </Flex>
                 </Flex>
