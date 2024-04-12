@@ -6,7 +6,7 @@ import Link from "next/link";
 import {Context} from "@/components/context"
 import dynamic from 'next/dynamic';
 const MenuLayout = dynamic(() => import('./menu_items'), {
-  ssr: false,
+  ssr: true,
 });
 
 const { Content, Footer, Sider } = Layout;
