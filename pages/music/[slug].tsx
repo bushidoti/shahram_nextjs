@@ -41,7 +41,7 @@ export default function Page({
       "@type": "VideoObject",
       "name": music[0].name,
       "description": music[0].description,
-      "thumbnailUrl": music[0].pic,
+      "thumbnailUrl": music[0].video,
       "contentUrl": music[0].video
     }
   const schemaBreadcrumb = {
