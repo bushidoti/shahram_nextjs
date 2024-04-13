@@ -40,6 +40,7 @@ export default function Page({
       "@context": "https://schema.org",
       "@type": "VideoObject",
       "name": music[0].name,
+      "uploadDate": music[0].release,
       "description": music[0].description,
       "thumbnailUrl": music[0].video,
       "contentUrl": music[0].video

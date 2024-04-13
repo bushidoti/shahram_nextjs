@@ -65,7 +65,7 @@ export default function Main({ children }: any) {
             }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar src={<Image priority sizes={'100px'} width={100} height={100} src={data?.pic || '/avatar.jpeg'}
+                <Avatar src={<Image priority sizes={'100px'} width={100} height={100} src={'/assets/avatar.jpeg'}
                     alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500'
                         size={100} icon={<UserOutlined/>}/>
             </div>
@@ -108,7 +108,7 @@ export default function Main({ children }: any) {
              </Header>
             <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
                 <div
-                    className='rounded !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
+                    className='rounded h-[!100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
                     style={{padding: 24}}>
                     <Context.Provider value={{
                         breakP,

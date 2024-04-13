@@ -83,7 +83,7 @@ export default function Music({ data } : any) {
                                 customVolumeControls={[]}
                                 key={`player${i}`}
                                 customAdditionalControls={[]}
-                                preload={"none"}
+                                preload={"metadata"}
                                 showJumpControls={false}
                                 header={<h2 key={`headermusic${i}`} className='text-center'>{value.name}</h2>}
                                 footer={<h4  key={`footermusic${i}`} className='text-center'>{value.description}</h4>}

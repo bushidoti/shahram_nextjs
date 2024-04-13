@@ -46,7 +46,7 @@ export default function Bio({ data } : any) {
                 <h1 hidden>بیوگرافی</h1>
                 <Flex wrap={'wrap'} gap={10} align={context.breakP ? "center" : ""} justify={context.breakP ? "center" : ""}>
                    <Avatar src={<Image className='object-top w-full' sizes='250px' priority width={1254}
-                    height={1254} src={data[0]?.biopic || '/bio.jpeg'} alt={''}/>} shape="square" size={200} icon={<UserOutlined/>}/>
+                    height={1254} src={'/assets/bio.jpeg'} alt={''}/>} shape="square" size={200} icon={<UserOutlined/>}/>
                     <Flex vertical justify={'flex-end'} gap={10}>
                         <h2 hidden>شهرام عبدلی</h2>
                         <p>تاریخ تولد : ۵ دی‌ماه ۱۳۵۳ </p>

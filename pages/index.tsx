@@ -8,6 +8,8 @@ import { useRouter } from 'next/router'
 import AudioPlayer from "react-h5-audio-player";
 import React, {useState} from "react";
 import 'react-h5-audio-player/lib/styles.css';
+import path from 'path'
+import { writeFile } from "fs/promises";
 
 
 interface Type {
@@ -24,7 +26,7 @@ interface Type {
 const { Search } = Input;
 
 
-export default function Home({ dataMusic , dataPanel } : any) {
+export default function Home({ dataMusic } : any) {
     const router = useRouter()
     const [playIndex , setPlayIndex] = useState<number>(0)
 
@@ -41,7 +43,7 @@ export default function Home({ dataMusic , dataPanel } : any) {
       "@type": "Person",
       "name": "شهرام عبدلی",
       "url": `${process.env.APP_URL}`,
-      "image": "/avatar.jpeg",
+      "image": "/assets/avatar.jpeg",
       "sameAs": [
         "https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         "https://www.youtube.com/@shahramabdoli"
@@ -91,34 +93,34 @@ export default function Home({ dataMusic , dataPanel } : any) {
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                blurDataURL={'/assets/carousel1.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={dataPanel[0].carousel1 || '/bio.jpeg'}
-                                alt={dataPanel[0].carousel1 || '/bio.jpeg'}
+                                src={'/assets/carousel1.jpeg'}
+                                alt={'/assets/carousel1.jpeg'}
                             />
                             <Image
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                blurDataURL={'/assets/carousel2.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={dataPanel[0].carousel2 || '/bio.jpeg'}
-                                alt={dataPanel[0].carousel2 || '/bio.jpeg'}
+                                src={'/assets/carousel2.jpeg'}
+                                alt={'/assets/carousel2.jpeg'}
                             />
                             <Image
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={dataPanel[0].carousel3 || '/bio.jpeg'}
+                                blurDataURL={'/assets/carousel3.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={dataPanel[0].carousel3 || '/bio.jpeg'}
-                                alt={dataPanel[0].carousel3 || '/bio.jpeg'}
+                                src={'/assets/carousel3.jpeg'}
+                                alt={'/assets/carousel3.jpeg'}
                             />
                         </Carousel>
                     </Flex>
@@ -130,10 +132,10 @@ export default function Home({ dataMusic , dataPanel } : any) {
                          lg:!w-[25vw] md:!w-[40vw] sm:!w-[40vw] mobile:!w-[80vw]'
                             cover={
                                 <Image
-                                    src={dataMusic[playIndex].pic}
+                                    src={`/assets/${dataMusic[playIndex].name}.jpeg`}
                                     alt={dataMusic[playIndex].name}
                                     placeholder="blur"
-                                    blurDataURL={dataMusic[playIndex].pic}
+                                    blurDataURL={`/assets/${dataMusic[playIndex].name}.jpeg`}
                                     width={150}
                                     loading={"eager"}
                                     height={150}
@@ -149,7 +151,7 @@ export default function Home({ dataMusic , dataPanel } : any) {
                                     onEnded={handleClickNext}
                                     autoPlayAfterSrcChange={true}
                                     showSkipControls={true}
-                                    preload={"none"}
+                                    preload={"metadata"}
                                     customVolumeControls={[]}
                                     footer={<h4 className='text-center'>{dataMusic[playIndex].description}</h4>}
                                     header={<h2 className='text-center'>{dataMusic[playIndex].name}</h2>}
@@ -176,8 +178,8 @@ export default function Home({ dataMusic , dataPanel } : any) {
                                     height={150}
                                     sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 150px"
                                     placeholder="blur"
-                                    blurDataURL={value.pic}
-                                    src={value.pic}
+                                    blurDataURL={`/assets/${value.name}.jpeg`}
+                                    src={`/assets/${value.name}.jpeg`}
                                     alt={value.name}
                                 />
                             </Link>
@@ -194,8 +196,59 @@ export async function getStaticProps() {
     const panel = await fetch(`${process.env.API}/panel/`)
     const dataMusic = await music.json()
     const dataPanel = await panel.json()
+
+    dataMusic.map(async (value: any) => {
+        let file = await fetch(value.pic)
+        let fileBuf = Buffer.from(await file.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/" + value.name + '.' + 'jpeg'),
+            fileBuf
+        );
+    })
+
+    let fileProfile = await fetch(dataPanel[0].pic)
+    let fileProfileBuf = Buffer.from(await fileProfile.arrayBuffer())
+    await writeFile(
+        path.join(process.cwd(), "public/assets/avatar.jpeg"),
+        fileProfileBuf
+    );
+
+    let fileBioPic = await fetch(dataPanel[0].biopic)
+    let fileBioPicBuf = Buffer.from(await fileBioPic.arrayBuffer())
+    await writeFile(
+        path.join(process.cwd(), "public/assets/bio.jpeg"),
+        fileBioPicBuf
+    );
+
+    if (dataPanel[0].carousel1) {
+        let fileCarousel1 = await fetch(dataPanel[0].carousel1)
+        let fileCarousel1Buf = Buffer.from(await fileCarousel1.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/carousel1.jpeg"),
+            fileCarousel1Buf
+        );
+    }
+
+    if (dataPanel[0].carousel2) {
+        let fileCarousel2 = await fetch(dataPanel[0].carousel2)
+        let fileCarousel2Buf = Buffer.from(await fileCarousel2.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/carousel2.jpeg"),
+            fileCarousel2Buf
+        );
+    }
+
+    if (dataPanel[0].carousel3) {
+        let fileCarousel3 = await fetch(dataPanel[0].carousel3)
+        let fileCarousel3Buf = Buffer.from(await fileCarousel3.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/carousel3.jpeg"),
+            fileCarousel3Buf
+        );
+    }
+
     return {
-        props: {dataMusic, dataPanel},
+        props: {dataMusic},
         revalidate: 3600
     }
 }
