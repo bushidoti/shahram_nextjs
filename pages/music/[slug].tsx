@@ -95,7 +95,7 @@ export default function Page({
                         {music[0].video ?
                             <div className='w-[300px]'>
                                 <main>
-                                    <video className='rounded w-full h-full' poster={music[0].pic}
+                                    <video className='rounded w-full h-full' poster={`assets/pic/${music[0].name}.jpeg`}
                                            aria-label={music[0].name}
                                            width={250} height={250}
                                            controls preload={'metadata'}>
@@ -111,8 +111,8 @@ export default function Page({
                                 priority
                                 sizes="100vw"
                                 className='w-[250px] h-full rounded'
-                                src={music[0].pic}
-                                alt={music[0].pic}
+                                src={`assets/pic/${music[0].name}.jpeg`}
+                                alt={`assets/pic/${music[0].name}.jpeg`}
                             />
                         }
 
@@ -121,7 +121,7 @@ export default function Page({
                                 <div>
                                     <label className='text-center mb-2'>دانلود mp3 : </label>
                                     <Button download htmlType={"button"} type='primary' target='_self'
-                                            href={music[0].music}><DownloadOutlined/></Button>
+                                            href={`/assets/music/${music[0].name}.mp3`}><DownloadOutlined/></Button>
                                 </div>
                                 <div>
                                     <label className='text-center mb-2'>دانلود موزیک ویدئو : </label>
@@ -160,9 +160,9 @@ export default function Page({
                             customVolumeControls={[]}
                             className='!border-none !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-10'
                             key={`player`}
-                            preload={"none"}
+                            preload={"metadata"}
                             showJumpControls={false}
-                            src={music[0].music}
+                            src={`/assets/music/${music[0].name}.mp3`}
                         />
                     </div>
                 </Flex>
@@ -174,7 +174,7 @@ export default function Page({
                     <Flex className='w-full' gap={20}>
                         {music[0].video ?
                             <div className='w-[300px]'>
-                                <video className='rounded w-full h-full' poster={music[0].pic}
+                                <video className='rounded w-full h-full' poster={`assets/pic/${music[0].name}.jpeg`}
                                        aria-label={music[0].name}
                                        width={250} height={250}
                                        controls preload={'metadata'}>
@@ -189,8 +189,8 @@ export default function Page({
                                 priority
                                 sizes="100vw"
                                 className='w-[250px] h-full rounded'
-                                src={music[0].pic}
-                                alt={music[0].pic}
+                                src={`assets/pic/${music[0].name}.jpeg`}
+                                alt={`assets/pic/${music[0].name}.jpeg`}
                             />
                         }
 
@@ -223,7 +223,7 @@ export default function Page({
                                 <div>
                                     <label className='text-center mb-2'>دانلود mp3 : </label>
                                     <Button htmlType={"button"} type='primary' target='_self'
-                                            href={music[0].music}><DownloadOutlined/></Button>
+                                            href={`/assets/music/${music[0].name}.mp3`}><DownloadOutlined/></Button>
                                 </div>
                                 <div>
                                     <label className='text-center mb-2'>دانلود موزیک ویدئو : </label>
@@ -239,9 +239,9 @@ export default function Page({
                             customVolumeControls={[]}
                             className='!border-none !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-10'
                             key={`player`}
-                            preload={"none"}
+                            preload={"metadata"}
                             showJumpControls={false}
-                            src={music[0].music}
+                            src={`/assets/music/${music[0].name}.mp3`}
                         />
                     </div>
                 </Flex>

@@ -60,8 +60,8 @@ export default function Videos({ data } : any) {
                             key={i}
                             className='!bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-5 shadow-2xl'
                             cover={
-                                <video className='rounded' poster={value.pic} aria-label={value.name} key={`video${i}`}  width={300} height={250}
-                                       controls preload={'none'}>
+                                <video className='rounded' poster={`assets/pic/${value.name}.jpeg`} aria-label={value.name} key={`video${i}`}  width={300} height={250}
+                                       controls preload={'metadata'}>
                                     <source src={value.video} type="video/mp4"/>
                                     مرورگر شما این قابلیت را پشتیبانی نمیکند
                                 </video>

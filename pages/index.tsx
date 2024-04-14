@@ -206,6 +206,8 @@ export async function getStaticProps() {
         );
     })
 
+
+
     dataMusic.map(async (value: any) => {
         let file = await fetch(value.music)
         let fileBuf = Buffer.from(await file.arrayBuffer())
