@@ -65,7 +65,7 @@ export default function Main({ children }: any) {
             }}
         >
             <div className='flex flex-col items-center m-5'>
-                <Avatar src={<Image priority sizes={'100px'} width={100} height={100} src={'/assets/avatar.jpeg'}
+                <Avatar src={<Image priority sizes={'100px'} width={100} height={100} src={'/assets/pic/avatar.jpeg'}
                     alt={'Avatar'}/>} className='bg-sky-500 m-5 !border-solid !border-2 !border-blue-500'
                         size={100} icon={<UserOutlined/>}/>
             </div>
@@ -101,7 +101,7 @@ export default function Main({ children }: any) {
                  " !backdrop-filter !backdrop-blur-sm !bg-opacity-30"}>
                  <Flex gap={10} align={"center"} justify={"center"}>
                    <Button className='bg-gray-950' shape="circle" type={"primary"} onClick={() => setCollapse(false)}><MenuOutlined/></Button>
-                   <Avatar src={<Image priority sizes={'52px'} width={52} height={52} src={data?.pic || '/avatar.jpeg'}
+                   <Avatar src={<Image priority sizes={'52px'} width={52} height={52} src={'/assets/pic/avatar.jpeg'}
                     alt={'Avatar'}/>} className='bg-sky-500 !border-solid !border-2 !border-blue-500'
                         size={55} icon={<UserOutlined/>}/>
                  </Flex>

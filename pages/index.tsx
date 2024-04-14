@@ -43,7 +43,7 @@ export default function Home({ dataMusic } : any) {
       "@type": "Person",
       "name": "شهرام عبدلی",
       "url": `${process.env.APP_URL}`,
-      "image": "/assets/avatar.jpeg",
+      "image": "/assets/pic/avatar.jpeg",
       "sameAs": [
         "https://www.instagram.com/shahramabdoliofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         "https://www.youtube.com/@shahramabdoli"
@@ -93,34 +93,34 @@ export default function Home({ dataMusic } : any) {
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={'/assets/carousel1.jpeg'}
+                                blurDataURL={'/assets/pic/carousel1.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={'/assets/carousel1.jpeg'}
-                                alt={'/assets/carousel1.jpeg'}
+                                src={'/assets/pic/carousel1.jpeg'}
+                                alt={'/assets/pic/carousel1.jpeg'}
                             />
                             <Image
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={'/assets/carousel2.jpeg'}
+                                blurDataURL={'/assets/pic/carousel2.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={'/assets/carousel2.jpeg'}
-                                alt={'/assets/carousel2.jpeg'}
+                                src={'/assets/pic/carousel2.jpeg'}
+                                alt={'/assets/pic/carousel2.jpeg'}
                             />
                             <Image
                                 className={`rounded  mobile:h-[300px] lg:h-[50vh] sm:h-[50vh] md:h-[50vh]`}
                                 sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 350px"
                                 placeholder="blur"
-                                blurDataURL={'/assets/carousel3.jpeg'}
+                                blurDataURL={'/assets/pic/carousel3.jpeg'}
                                 width={150}
                                 loading={"eager"}
                                 height={150}
-                                src={'/assets/carousel3.jpeg'}
-                                alt={'/assets/carousel3.jpeg'}
+                                src={'/assets/pic/carousel3.jpeg'}
+                                alt={'/assets/pic/carousel3.jpeg'}
                             />
                         </Carousel>
                     </Flex>
@@ -132,10 +132,10 @@ export default function Home({ dataMusic } : any) {
                          lg:!w-[25vw] md:!w-[40vw] sm:!w-[40vw] mobile:!w-[80vw]'
                             cover={
                                 <Image
-                                    src={`/assets/${dataMusic[playIndex].name}.jpeg`}
+                                    src={`/assets/pic/${dataMusic[playIndex].name}.jpeg`}
                                     alt={dataMusic[playIndex].name}
                                     placeholder="blur"
-                                    blurDataURL={`/assets/${dataMusic[playIndex].name}.jpeg`}
+                                    blurDataURL={`/assets/pic/${dataMusic[playIndex].name}.jpeg`}
                                     width={150}
                                     loading={"eager"}
                                     height={150}
@@ -156,7 +156,7 @@ export default function Home({ dataMusic } : any) {
                                     footer={<h4 className='text-center'>{dataMusic[playIndex].description}</h4>}
                                     header={<h2 className='text-center'>{dataMusic[playIndex].name}</h2>}
                                     showJumpControls={false}
-                                    src={dataMusic[playIndex].music}
+                                    src={`/assets/music/${dataMusic[playIndex].name}.mp3`}
                                     onClickPrevious={handleClickPrevious}
                                     onClickNext={handleClickNext}
                                 />
@@ -178,8 +178,8 @@ export default function Home({ dataMusic } : any) {
                                     height={150}
                                     sizes="(max-width: 360px) 100px, (max-width: 576px) 100px, 150px"
                                     placeholder="blur"
-                                    blurDataURL={`/assets/${value.name}.jpeg`}
-                                    src={`/assets/${value.name}.jpeg`}
+                                    blurDataURL={`/assets/pic/${value.name}.jpeg`}
+                                    src={`/assets/pic/${value.name}.jpeg`}
                                     alt={value.name}
                                 />
                             </Link>
@@ -201,7 +201,16 @@ export async function getStaticProps() {
         let file = await fetch(value.pic)
         let fileBuf = Buffer.from(await file.arrayBuffer())
         await writeFile(
-            path.join(process.cwd(), "public/assets/" + value.name + '.' + 'jpeg'),
+            path.join(process.cwd(), "public/assets/pic/" + value.name + '.' + 'jpeg'),
+            fileBuf
+        );
+    })
+
+    dataMusic.map(async (value: any) => {
+        let file = await fetch(value.music)
+        let fileBuf = Buffer.from(await file.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/music/" + value.name + '.' + 'mp3'),
             fileBuf
         );
     })
@@ -209,14 +218,14 @@ export async function getStaticProps() {
     let fileProfile = await fetch(dataPanel[0].pic)
     let fileProfileBuf = Buffer.from(await fileProfile.arrayBuffer())
     await writeFile(
-        path.join(process.cwd(), "public/assets/avatar.jpeg"),
+        path.join(process.cwd(), "public/assets/pic/avatar.jpeg"),
         fileProfileBuf
     );
 
     let fileBioPic = await fetch(dataPanel[0].biopic)
     let fileBioPicBuf = Buffer.from(await fileBioPic.arrayBuffer())
     await writeFile(
-        path.join(process.cwd(), "public/assets/bio.jpeg"),
+        path.join(process.cwd(), "public/assets/pic/bio.jpeg"),
         fileBioPicBuf
     );
 
@@ -224,7 +233,7 @@ export async function getStaticProps() {
         let fileCarousel1 = await fetch(dataPanel[0].carousel1)
         let fileCarousel1Buf = Buffer.from(await fileCarousel1.arrayBuffer())
         await writeFile(
-            path.join(process.cwd(), "public/assets/carousel1.jpeg"),
+            path.join(process.cwd(), "public/assets/pic/carousel1.jpeg"),
             fileCarousel1Buf
         );
     }
@@ -233,7 +242,7 @@ export async function getStaticProps() {
         let fileCarousel2 = await fetch(dataPanel[0].carousel2)
         let fileCarousel2Buf = Buffer.from(await fileCarousel2.arrayBuffer())
         await writeFile(
-            path.join(process.cwd(), "public/assets/carousel2.jpeg"),
+            path.join(process.cwd(), "public/assets/pic/carousel2.jpeg"),
             fileCarousel2Buf
         );
     }
@@ -242,7 +251,7 @@ export async function getStaticProps() {
         let fileCarousel3 = await fetch(dataPanel[0].carousel3)
         let fileCarousel3Buf = Buffer.from(await fileCarousel3.arrayBuffer())
         await writeFile(
-            path.join(process.cwd(), "public/assets/carousel3.jpeg"),
+            path.join(process.cwd(), "public/assets/pic/carousel3.jpeg"),
             fileCarousel3Buf
         );
     }

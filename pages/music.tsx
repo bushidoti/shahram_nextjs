@@ -73,7 +73,7 @@ export default function Music({ data } : any) {
                             />
                         }
                         actions={[
-                            <Button  htmlType={"button"} type='link' target='_parent' download block key={`musicdownload${i}`} href={value.music}><DownloadOutlined/></Button>,
+                            <Button  htmlType={"button"} type='link' target='_parent' download block key={`musicdownload${i}`} href={`/assets/music/${value.name}.mp3`}><DownloadOutlined/></Button>,
                             <Button htmlType={"button"} type='link' disabled={!value.video} download target='_parent' block key={`videodownload${i}`} href={value.video}><VideoCameraOutlined /></Button>,
                         ]}
                     >
@@ -87,7 +87,7 @@ export default function Music({ data } : any) {
                                 showJumpControls={false}
                                 header={<h2 key={`headermusic${i}`} className='text-center'>{value.name}</h2>}
                                 footer={<h4  key={`footermusic${i}`} className='text-center'>{value.description}</h4>}
-                                src={value.music}
+                                src={`/assets/music/${value.name}.mp3`}
                             />
                         </div>
                     </Card>

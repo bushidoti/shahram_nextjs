@@ -1,12 +1,11 @@
 import Image from "next/image";
-import {Flex} from "antd";
+import {Empty, Flex} from "antd";
 import Head from "next/head";
 import React from "react";
+import {writeFile} from "fs/promises";
+import path from "path";
 
-interface Type {
-    pic : string,
-    name : string,
-}
+
 
 export default function Photo({ data } : any) {
      const schemaBreadcrumb = {
@@ -24,7 +23,6 @@ export default function Photo({ data } : any) {
           "item": `${process.env.APP_URL}/photo`
         }]
       }
-
     return (
         <>
             <Head>
@@ -42,18 +40,21 @@ export default function Photo({ data } : any) {
                 <meta property="og:url" content={`${process.env.APP_URL}/photo`}/>
             </Head>
             <Flex gap={20} wrap={"wrap"} align={"center"} justify={"center"}>
-                {data.map((value: Type, i: number) => (
+                {data.map((value : any,i: number) => (
                     <Image
                         key={`image${i}`}
                             priority
                             className='object-fill rounded w-[250px] h-[250px]'
                             width={250}
                             height={250}
-                            src={value.pic}
-                            alt={value.pic}
+                            src={`/assets/pic/selfie${i}.jpeg`}
+                            alt={`/assets/pic/selfie${i}.jpeg`}
                           />
                 ))}
            </Flex>
+
+            {data.length !== 0 ? '' : <Empty />}
+
        </>
     )
 }
@@ -62,6 +63,16 @@ export default function Photo({ data } : any) {
 export async function getStaticProps() {
     const res = await fetch(`${process.env.API}/selfie/`)
     const data = await res.json()
+
+    data.map(async (value: any , i: number) => {
+        let file = await fetch(value.pic)
+        let fileBuf = Buffer.from(await file.arrayBuffer())
+        await writeFile(
+            path.join(process.cwd(), "public/assets/pic/selfie" + `${i}` + '.' + 'jpeg'),
+            fileBuf
+        );
+    })
+
     return {
         props: {data},
         revalidate: 3600
