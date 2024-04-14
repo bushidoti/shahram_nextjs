@@ -101,9 +101,16 @@ export default function Main({ children }: any) {
                  " !backdrop-filter !backdrop-blur-sm !bg-opacity-30"}>
                  <Flex gap={10} align={"center"} justify={"center"}>
                    <Button className='bg-gray-950' shape="circle" type={"primary"} onClick={() => setCollapse(false)}><MenuOutlined/></Button>
-                   <Avatar src={<Image priority sizes={'52px'} width={52} height={52} src={'/assets/pic/avatar.jpeg'}
-                    alt={'Avatar'}/>} className='bg-sky-500 !border-solid !border-2 !border-blue-500'
-                        size={55} icon={<UserOutlined/>}/>
+                   <Avatar src={<Image
+                       priority
+                       sizes={'52px'}
+                       width={52}
+                       placeholder="blur"
+                       blurDataURL={'/assets/pic/avatar.jpeg'}
+                       height={52}
+                       src={'/assets/pic/avatar.jpeg'}
+                       alt={'Avatar'}/>} className='bg-sky-500 !border-solid !border-2 !border-blue-500'
+                       size={55} icon={<UserOutlined/>}/>
                  </Flex>
              </Header>
             <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
