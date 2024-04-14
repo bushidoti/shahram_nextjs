@@ -48,3 +48,10 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
+
+# next-video
+public/assets/video/*
+!public/assets/video/*.json
+!public/assets/video/*.js
+!public/assets/video/*.ts
+public/_next-video
