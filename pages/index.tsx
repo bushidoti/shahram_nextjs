@@ -71,7 +71,7 @@ export default function Home({ dataMusic } : any) {
                       content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                 <meta property="og:title" content={'خواننده شهرام عبدلی | Shahram Abdoli'}/>
                 <meta property="og:url" content={`${process.env.APP_URL}`}/>
-                <meta property="og:image" content={'/avatar.jpeg'}/>
+                <meta property="og:image" content={'/assets/pic/avatar.jpeg'}/>
             </Head>
             <Flex gap={20} vertical>
                 <Flex wrap={"wrap"} gap={40} align={"center"} justify={"center"}>
