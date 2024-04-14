@@ -95,7 +95,7 @@ export default function Page({
                         {music[0].video ?
                             <div className='w-[300px]'>
                                 <main>
-                                    <video className='rounded w-full h-full' poster={`assets/pic/${music[0].name}.jpeg`}
+                                    <video className='rounded w-full h-full' poster={`/assets/pic/${music[0].name}.jpeg`}
                                            aria-label={music[0].name}
                                            width={250} height={250}
                                            controls preload={'metadata'}>
@@ -111,8 +111,8 @@ export default function Page({
                                 priority
                                 sizes="100vw"
                                 className='w-[250px] h-full rounded'
-                                src={`assets/pic/${music[0].name}.jpeg`}
-                                alt={`assets/pic/${music[0].name}.jpeg`}
+                                src={`/assets/pic/${music[0].name}.jpeg`}
+                                alt={`/assets/pic/${music[0].name}.jpeg`}
                             />
                         }
 
@@ -174,7 +174,7 @@ export default function Page({
                     <Flex className='w-full' gap={20}>
                         {music[0].video ?
                             <div className='w-[300px]'>
-                                <video className='rounded w-full h-full' poster={`assets/pic/${music[0].name}.jpeg`}
+                                <video className='rounded w-full h-full' poster={`/assets/pic/${music[0].name}.jpeg`}
                                        aria-label={music[0].name}
                                        width={250} height={250}
                                        controls preload={'metadata'}>
@@ -189,8 +189,8 @@ export default function Page({
                                 priority
                                 sizes="100vw"
                                 className='w-[250px] h-full rounded'
-                                src={`assets/pic/${music[0].name}.jpeg`}
-                                alt={`assets/pic/${music[0].name}.jpeg`}
+                                src={`/assets/pic/${music[0].name}.jpeg`}
+                                alt={`/assets/pic/${music[0].name}.jpeg`}
                             />
                         }
 
