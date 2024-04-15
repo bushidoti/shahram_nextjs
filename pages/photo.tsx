@@ -30,7 +30,7 @@ export default function Photo({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/photo`}/>
+                <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/photo`}/>
                 <meta name="keywords"
                       content="شهرام عبدلی, shahram abdoli photo, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, عکس های شهرام عبدلی"/>
                 <title>عکس - شهرام عبدلی</title>

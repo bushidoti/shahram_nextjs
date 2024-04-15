@@ -78,7 +78,7 @@ export default function Page({
               dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
           />
           <title>{title}</title>
-          <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
+          <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
           <meta name="keywords"
                 content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>

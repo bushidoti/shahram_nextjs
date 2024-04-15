@@ -43,7 +43,7 @@ export default function Videos({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/video`}/>
+                <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/video`}/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>

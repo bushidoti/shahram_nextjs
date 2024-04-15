@@ -33,7 +33,7 @@ export default function Bio({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href="https://www.shahramabdoli.ir/bio"/>
+                <link rel="alternate" hrefLang="fa" href="https://www.shahramabdoli.ir/bio"/>
                 <title>بیوگرافی شهرام عبدلی</title>
                 <meta name="keywords"
                       content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>

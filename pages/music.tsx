@@ -47,7 +47,7 @@ export default function Music({ data } : any) {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
-                <link rel="alternate" hrefLang="fa-IR" href={`${process.env.APP_URL}/music`}/>
+                <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music`}/>
                 <title>آهنگ - شهرام عبدلی</title>
                 <meta name="keywords"
                       content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
