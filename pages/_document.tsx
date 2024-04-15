@@ -9,7 +9,9 @@ const MyDocument = () => (
           <meta name="author" content="Bushidoti"/>
           <link rel="manifest" href="/manifest.json"/>
           <link rel="icon" href="/favicon.ico"/>
+          <meta property="og:site_name" content="شهرام عبدلی"/>
           <meta property="og:image" content="/favicon.ico"/>
+          <meta property="og:type" content="music.song"/>
           <link rel="apple-touch-icon" href="/icon-512.png"></link>
           <meta name="theme-color" content="#000"/>
       </Head>
