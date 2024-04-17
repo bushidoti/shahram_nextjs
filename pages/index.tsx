@@ -66,7 +66,7 @@ export default function Home({ dataMusic } : any) {
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/`}/>
                 <title>خواننده شهرام عبدلی | Shahram Abdoli</title>
                 <meta name="keywords"
-                      content="Musician, Singer, Songwriter, Composer, Pop Music, Persian Music, Shahram Abdoli, خواننده شهرام عبدلی, آهنگ شهرام عبدلی, موسیقی ایرانی,آهنگساز"/>
+                      content="شهرام عبدلی, خواننده شهرام عبدلی, آهنگ شهرام عبدلی,موسیقی شهرام عبدلی"/>
                 <meta name="description"
                       content={'سایت شخصی خواننده شهرام عبدلی منبع رسمی انتشار موزیک ها و موزیک ویدئو ها'}/>
                 <meta property="og:title" content={'خواننده شهرام عبدلی | Shahram Abdoli'}/>

@@ -36,9 +36,9 @@ export default function Bio({ data } : any) {
                 <link rel="alternate" hrefLang="fa" href="https://www.shahramabdoli.ir/bio"/>
                 <title>بیوگرافی شهرام عبدلی</title>
                 <meta name="keywords"
-                      content="شهرام عبدلی, shahram abdoli biography, خواننده شهرام عبدلی, shahram abdoli, musician shahram abdoli, بیو گرافی شهرام عبدلی"/>
+                      content="خواننده شهرام عبدلی, بیو گرافی شهرام عبدلی"/>
                 <meta name="description"
-                      content={'بیوگرافی شهرام عبدلی'}/>
+                      content={data[0]?.bio}/>
                 <meta property="og:image" content={'/assets/pic/avatar.jpeg'}/>
                 <meta property="og:title" content={'بیوگرافی - شهرام عبدلی'}/>
                 <meta property="og:url" content={'https://www.shahramabdoli.ir/bio'}/>

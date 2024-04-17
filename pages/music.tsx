@@ -5,7 +5,6 @@ import {
 import Image from "next/image";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import type { Metadata } from 'next'
 import Head from "next/head";
 import React from "react";
 
@@ -17,11 +16,6 @@ interface Type {
     description : string,
 }
 
-
-export const metadata: Metadata = {
-  title: 'آهنگ های شهرام عبدلی',
-  description: 'جدید ترین آهنگ های شهرام عبدلی',
-}
 
 export default function Music({ data } : any) {
     const schemaBreadcrumb = {
@@ -48,12 +42,12 @@ export default function Music({ data } : any) {
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music`}/>
-                <title>آهنگ - شهرام عبدلی</title>
+                <title>آهنگ های | شهرام عبدلی</title>
                 <meta name="keywords"
-                      content="آهنگ شهرام عبدلی, خواننده شهرام عبدلی, music shahram abdoli, music, آهنگ, شهرام عبدلی"/>
+                      content="آهنگ شهرام عبدلی ,موزیک شهرام عبدلی ,خواننده شهرام عبدلی ,آهنگ های شهرام عبدلی"/>
                 <meta name="description"
                       content={'آهنگ های شهرام عبدلی'}/>
-                <meta property="og:title" content={'آهنگ - شهرام عبدلی'}/>
+                <meta property="og:title" content={'آهنگ های | شهرام عبدلی'}/>
                 <meta property="og:url" content={`${process.env.APP_URL}/music`}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
@@ -86,7 +80,6 @@ export default function Music({ data } : any) {
                                 preload={"metadata"}
                                 showJumpControls={false}
                                 header={<h2 key={`headermusic${i}`} className='text-center'>{value.name}</h2>}
-                                footer={<h4  key={`footermusic${i}`} className='text-center'>{value.description}</h4>}
                                 src={`/assets/music/${value.name}.mp3`}
                             />
                         </div>

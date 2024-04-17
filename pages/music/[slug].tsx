@@ -80,8 +80,8 @@ export default function Page({
           <title>{title}</title>
           <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
-          <meta name="keywords"
-                content={`آهنگ ${music[0].name}, اهنگ شهرام عبدلی ${music[0].name}, خواننده شهرام عبدلی, اهنگ شهرام عبدلی, ${music[0].name}, شهرام عبدلی ${music[0].name}, شهرام عبدلی, عبدلی, shahram abdoli, آهنگ شهرام عبدلی`}/>
+          <meta name=""
+                content={`آهنگ شهرام عبدلی ${music[0].name},${music[0].name},آهنگ شهرام عبدلی ,شهرام عبدلی ${music[0].name},موزیک شهرام عبدلی ${music[0].name},`}/>
           <meta name="description"
                 content={music[0].description}/>
           <meta property="og:title" content={`آهنگ - ${music[0].name}`}/>

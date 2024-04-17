@@ -1,7 +1,6 @@
 import {Button, Card, Flex} from "antd";
 import {DownloadOutlined} from '@ant-design/icons';
 import 'react-h5-audio-player/lib/styles.css';
-import type { Metadata } from 'next'
 import Head from "next/head";
 import React from "react";
 
@@ -14,10 +13,7 @@ interface Type {
 }
 
 
-export const metadata: Metadata = {
-  title: 'موزیک ویدئو - شهرام عبدلی',
-  description: 'جدید ترین موزیک ویدئو های شهرام عبدلی',
-}
+
 
 export default function Videos({ data } : any) {
     const schemaBreadcrumb = {
@@ -46,7 +42,7 @@ export default function Videos({ data } : any) {
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/video`}/>
                 <title>موزیک ویدئو - شهرام عبدلی</title>
                 <meta name="keywords"
-                      content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, music video shahram abdoli, music video, موزیک ویدئو, شهرام عبدلی"/>
+                      content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, موزیک ویدئوهای شهرام عبدلی"/>
                 <meta name="description"
                       content={'موزیک ویدئو های شهرام عبدلی'}/>
                 <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
