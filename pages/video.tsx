@@ -40,7 +40,7 @@ export default function Videos({ data } : any) {
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
                 />
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/video`}/>
-                <title>موزیک ویدئو - شهرام عبدلی</title>
+                <title>موزیک ویدئو های شهرام عبدلی</title>
                 <meta name="keywords"
                       content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, موزیک ویدئوهای شهرام عبدلی"/>
                 <meta name="description"

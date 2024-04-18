@@ -33,10 +33,10 @@ export default function Photo({ data } : any) {
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/photo`}/>
                 <meta name="keywords"
                       content="عکس شهرام عبدلی,خواننده شهرام عبدلی , عکس های شهرام عبدلی"/>
-                <title>عکس - شهرام عبدلی</title>
+                <title>عکس های شهرام عبدلی</title>
                 <meta name="description"
                       content={'عکس های شهرام عبدلی'}/>
-                <meta property="og:title" content={'عکس - شهرام عبدلی'}/>
+                <meta property="og:title" content={'عکس های شهرام عبدلی'}/>
                 <meta property="og:url" content={`${process.env.APP_URL}/photo`}/>
             </Head>
             <Flex gap={20} wrap={"wrap"} align={"center"} justify={"center"}>
