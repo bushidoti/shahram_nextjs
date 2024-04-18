@@ -47,7 +47,7 @@ export default function Music({ data } : any) {
                       content="آهنگ شهرام عبدلی ,موزیک شهرام عبدلی ,خواننده شهرام عبدلی ,آهنگ های شهرام عبدلی"/>
                 <meta name="description"
                       content={'دانلود و پخش بروز آهنگ های خواننده شهرام عبدلی همراه با موزیک ویدئو با لینک مستقیم'}/>
-                <meta property="og:title" content={'آهنگ های | شهرام عبدلی'}/>
+                <meta property="og:title" content={'آهنگ های شهرام عبدلی'}/>
                 <meta property="og:url" content={`${process.env.APP_URL}/music`}/>
             </Head>
             <Flex justify={'center'} align={'center'} gap={35} wrap="wrap">
