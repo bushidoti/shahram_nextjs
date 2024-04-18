@@ -80,7 +80,7 @@ export default function Page({
           <title>{title}</title>
           <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
           <meta property='og:video' content={music[0].video}/>
-          <meta name=""
+          <meta name="keywords"
                 content={`آهنگ شهرام عبدلی ${music[0].name},${music[0].name},آهنگ شهرام عبدلی ,شهرام عبدلی ${music[0].name},موزیک شهرام عبدلی ${music[0].name},`}/>
           <meta name="description"
                 content={music[0].description}/>

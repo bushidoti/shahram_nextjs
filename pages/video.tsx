@@ -44,7 +44,7 @@ export default function Videos({ data } : any) {
                 <meta name="keywords"
                       content="موزیک ویدئو شهرام عبدلی, خواننده شهرام عبدلی, موزیک ویدئوهای شهرام عبدلی"/>
                 <meta name="description"
-                      content={'موزیک ویدئو های شهرام عبدلی'}/>
+                      content={'دانلود و پخش بروز موزیک ویدئو های  خواننده شهرام عبدلی با لینک مستقیم و کیفیت بالا'}/>
                 <meta property="og:title" content={'موزیک ویدئو - شهرام عبدلی'}/>
                 <meta property="og:url" content={`${process.env.APP_URL}/video`}/>
             </Head>
