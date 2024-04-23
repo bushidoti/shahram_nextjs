@@ -69,13 +69,15 @@ export default function Page({
       <>
         <Head>
           <link rel="icon" href="/favicon.ico"/>
-          <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{__html: JSON.stringify(schemaVideo)}}
-          />
-          <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
+            {music[0].video ?
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(schemaVideo)}}
+                />
+                : ''}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{__html: JSON.stringify(schemaBreadcrumb)}}
           />
           <title>{title}</title>
           <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/music/${music[0].name}`}/>
