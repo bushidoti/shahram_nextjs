@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params } : any) {
   const res = await fetch(`${process.env.API}/music/?name=${params.slug}`)
   const music = await res.json()
-  return { props: { music } }
+  return { props: { music }, revalidate: 60}
 }
 
 export default function Page({
@@ -65,6 +65,7 @@ export default function Page({
           "item": `${process.env.APP_URL}/music/${music[0].name}`
         }]
       }
+
   return (
       <>
         <Head>
