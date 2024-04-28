@@ -64,7 +64,7 @@ export default function Home({ dataMusic } : any) {
                     dangerouslySetInnerHTML={{__html: JSON.stringify(schemaPerson)}}
                 />
                 <link rel="alternate" hrefLang="fa" href={`${process.env.APP_URL}/`}/>
-                <title>خواننده شهرام عبدلی | Shahram Abdoli</title>
+                <title>خواننده شهرام عبدلی</title>
                 <meta name="keywords"
                       content="شهرام عبدلی, خواننده شهرام عبدلی, آهنگ شهرام عبدلی,موسیقی شهرام عبدلی"/>
                 <meta name="description"
