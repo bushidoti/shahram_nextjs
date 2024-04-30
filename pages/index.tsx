@@ -153,7 +153,6 @@ export default function Home({ dataMusic } : any) {
                                     showSkipControls={true}
                                     preload={"metadata"}
                                     customVolumeControls={[]}
-                                    footer={<h4 className='text-center'>{dataMusic[playIndex].description}</h4>}
                                     header={<h2 className='text-center'>{dataMusic[playIndex].name}</h2>}
                                     showJumpControls={false}
                                     src={`/assets/music/${dataMusic[playIndex].name}.mp3`}
