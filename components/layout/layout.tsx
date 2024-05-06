@@ -18,6 +18,7 @@ interface Type {
     pic : string,
     spotify : string,
     shazam : string,
+    color : string,
     youtube : string,
     insta : string,
 }
@@ -39,7 +40,7 @@ export default function Main({ children }: any) {
 
 
   return (
-    <Layout className='!bg-white !bg-clip-padding !bg-opacity-0' hasSider={true}>
+    <Layout style={{background:data?.color}} className='!bg-clip-padding !bg-opacity-0' hasSider={true}>
         <Sider
             width={siderW}
             collapsed={collapse}
@@ -115,7 +116,7 @@ export default function Main({ children }: any) {
              </Header>
             <Content className={breakP ? 'p-2' : 'p-2 ms-[210px] '}>
                 <div
-                    className='rounded h-[!100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
+                    className='rounded h-[100vh] !bg-white !bg-clip-padding !backdrop-filter !backdrop-blur-sm !bg-opacity-50'
                     style={{padding: 24}}>
                     <Context.Provider value={{
                         breakP,
